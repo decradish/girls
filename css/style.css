@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS reset */
+*{font-family: "优黑","微软雅黑", "宋体", "Microsoft Yahei", "Pinghei", Arial, Helvetica, sans-serif;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+fieldset,img {border:0; }
+ol,ul {list-style:none; }
+h1,h2,h3,h4,h5,h6,button,input,select,textarea {font-size:100%;}
+button::-moz-focus-inner,input::-moz-focus-inner{padding:0; border:0;}
+table {border-collapse:collapse;border-spacing:0;}
+i, cite, em, var, dfn, address {font-style: normal;}
+body{font:12px "微软雅黑", "宋体",Arial, Helvetica, sans-serif;}
+a{color: #313131;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a:active, a:focus{outline:none}
+a[href^="http://tongji.baidu.com"]{display: none;}
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; font-size:0;}
+.clearfix{zoom:1;clear:both;}
+.clear{clear:both; height:0; line-height:0; font-size:0;}
+.none{display: none;}
+
+.display-flexbox {
+    display: -webkit-box;   /* 兼容旧的 webkit，Android 2.x */
+    display: -webkit-flex;  /* 标准写法 带 webkit 前缀，兼容标准确立之前的 webkit */
+    display: flex;          /* 标准写法 最新的 webkit, firefox, msie 可以支持 */
+}
+.flexbox-children {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.hidden {
+  display: none;
+}
+
+
+body{background: url(../img/bg.jpg) repeat-y center 1858px;}
+.wrapper{background: url(../img/bg_top.jpg) no-repeat center 0;}
+.bottom{background: url(../img/bg_bottom.png) no-repeat center bottom;}
+.core{width: 962px;margin: 0 auto;}
+	header{
+		width: 1206px;
+		height: 746px;
+		padding-top: 24px;
+		margin: 0 0 -100px -27px;
+		background: url(../img/header.png) no-repeat center bottom;}
+		.logos{padding-left: 16px;}
+			.logos a{display: inline-block;text-indent: -99999px;height: 90px;width: 130px;opacity: .5;}
+			.logos a.logo_0{}
+			.logos a.logo_1{width: 45px;margin: 0 26px 0 26px;}
+			.logos a.logo_2{width: 90px;}
+		.header_tb{width: 526px;margin: 251px 0 0 28px;color: #fff;text-shadow: 1px 1px 2px #333;}
+			.header_tb th{font-size: 28px;text-align: right;font-weight: normal;padding-bottom: 10px;}
+				.header_tb th span{display: block;font-size: 18px;}
+			.header_tb td{line-height: 20px;vertical-align: top;}
+		.girl_count{
+			width: 345px;
+			height: 46px;
+			line-height: 46px;
+			font-size: 24px;
+			color: #4f0330;
+			text-align: center;
+			float: right;
+			margin: 5px 238px 0 0;
+			font-weight: bold;}
+		.nav{width: 100%;clear: both;}
+			.nav a{
+				width: 190px;
+				height: 72px;
+				text-indent: -99999px;
+				display: inline-block;}
+	footer{height: 240px;padding-top: 140px;text-align: center;color: #fff;font-size: 14px;}
+	.test{
+		height: 300px;
+		background: red;
+		opacity: .5;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
