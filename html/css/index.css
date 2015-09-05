@@ -1,0 +1,12 @@
+/*--common--*/
+.index_title{
+	background: url('../img/index/title_bg.png') no-repeat;
+	background-size: 1021px 119px;
+}
+/*--.news--*/
+.race_news img{
+	width: 480px;
+	height: 270px;
+}
+/*--.reward--*/
+
