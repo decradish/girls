@@ -1,8 +1,7 @@
 .introduce{
-	width: 810px;
-	height: 500px;
+	width: 828px;
 	background: url(../img/introduce_bg.png) no-repeat;
-	padding:0 76px;
+	padding:0 67px;
 	overflow: hidden;
 	zoom:1;
 }
@@ -19,3 +18,54 @@
 	margin-right: 14px;
 	margin-bottom: 10px;
 }
+.intro_text{
+	margin-top: 10px;
+}
+.intro_text p{
+	text-indent: 24px;
+	font-size: 18px;
+	color: #faedff;
+	line-height: 28px;
+}
+.intro_saicheng{
+	margin:40px 0;
+}
+.saicheng_title{
+	height: 30px;
+	background: url(../img/saichengjianjie.png) no-repeat;
+	margin-bottom: 20px;
+}
+.saicheng_content{
+	height: 127px;
+	background: url(../img/saichengdetail.png) no-repeat;
+}
+.intro_jiangli{
+	height: 258px;
+	background: url(../img/jiangli.png) no-repeat;
+	margin-bottom: 60px;
+}
+.intro_zhuti{
+	height: 427px;
+	background: url(../img/zhuti.png) no-repeat;
+	margin-bottom: 60px;
+}
+.intro_zizhi{
+	height: 569px;
+	background: url(../img/zizhi.png) no-repeat;
+	margin-bottom: 60px;
+}
+.zhuban_title{
+	height: 30px;
+	background: url(../img/zhuban.png) no-repeat;
+	margin-bottom: 30px;
+}
+.zhuban_content p{
+	font-size: 18px;
+	line-height: 40px;
+	color: #fff;
+}
+.zhuban_content p.zhuban_indent{
+	text-indent: 90px;
+}
+
+
