@@ -33,7 +33,7 @@ a[href^="http://tongji.baidu.com"]{display: none;}
 }
 
 
-body{background: url(../img/bg.jpg) repeat-y center 1858px;}
+body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 2px #333;}
 .wrapper{background: url(../img/bg_top.jpg) no-repeat center 0;}
 .bottom{background: url(../img/bg_bottom.png) no-repeat center bottom;}
 .core{width: 962px;margin: 0 auto;}
@@ -48,7 +48,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;}
 			.logos a.logo_0{}
 			.logos a.logo_1{width: 45px;margin: 0 26px 0 26px;}
 			.logos a.logo_2{width: 90px;}
-		.header_tb{width: 526px;margin: 251px 0 0 28px;color: #fff;text-shadow: 1px 1px 2px #333;}
+		.header_tb{width: 526px;margin: 251px 0 0 28px;color: #fff;}
 			.header_tb th{font-size: 28px;text-align: right;font-weight: normal;padding-bottom: 10px;}
 				.header_tb th span{display: block;font-size: 18px;}
 			.header_tb td{line-height: 20px;vertical-align: top;}
@@ -69,10 +69,18 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;}
 				text-indent: -99999px;
 				display: inline-block;}
 	footer{height: 240px;padding-top: 140px;text-align: center;color: #fff;font-size: 14px;}
-	.test{
-		height: 300px;
-		background: red;
-		opacity: .5;}
+	
+	.race_course{color: #fff;}
+		.race_course h1{font-size: 30px;margin-bottom: 10px;font-weight: normal;}
+		.race_course ul{}
+			.race_course li{display: inline-block;text-align: center;}
+				.race_course li strong{width: 119px;height: 32px;font-weight: normal;display: block;background: url(../img/course_title_bg.png) no-repeat center 0;line-height: 31px;font-size: 20px;font-weight: normal;margin-bottom: 30px;}
+				.race_course li.current strong{background-position: center bottom;}
+				li.course_0{margin-right: 26px;}
+				li.course_1{margin-right: 24px;}
+				li.course_2{margin-right: 40px;}
+				li.course_3{margin-right: 50px;}
+				li.course_4{margin-right: 40px;}
 
 
 
