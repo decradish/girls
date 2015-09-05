@@ -72,15 +72,36 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 	
 	.race_course{color: #fff;}
 		.race_course h1{font-size: 30px;margin-bottom: 10px;font-weight: normal;}
-		.race_course ul{}
-			.race_course li{display: inline-block;text-align: center;}
+		.race_course ul{background: url(../img/line.png) no-repeat center -8px;}
+			.race_course li{display: inline-block;text-align: center;font-size: 16px;}
 				.race_course li strong{width: 119px;height: 32px;font-weight: normal;display: block;background: url(../img/course_title_bg.png) no-repeat center 0;line-height: 31px;font-size: 20px;font-weight: normal;margin-bottom: 30px;}
 				.race_course li.current strong{background-position: center bottom;}
 				li.course_0{margin-right: 26px;}
 				li.course_1{margin-right: 24px;}
 				li.course_2{margin-right: 40px;}
 				li.course_3{margin-right: 50px;}
-				li.course_4{margin-right: 40px;}
+				li.course_4{margin-right: 50px;}
+
+	.signup{min-height: 945px;padding: 8px 22px;background: url(../img/signup_bg.png) no-repeat center 0;margin-top: 35px;text-shadow: none;}
+		.signup > h1{font-family: '宋体';font-size: 36px;text-align: center;color: #fff;font-weight: normal;line-height: 80px;}
+		.signup h2{height: 30px;line-height: 30px;text-indent: 12px;background: url(../img/white_bg.png) repeat 0 0;color: #990294;font-size: 18px;font-weight: normal;}
+		.signup_box{color: #fdff34;line-height: 38px;padding: 8px 0 8px 16px;font-size: 18px;}
+			.signup_box input{border: none;background: url(../img/white_bg.png) repeat 0 0;height: 20px;margin-right: 6px;color: #540177;text-indent: 12px;}
+			.birthday_day{margin-right: 6px;}
+			.user_name{width: 122px;}
+			.native_place{width: 84px;margin-right: 6px;}
+			.signup_box .id_code{width: 220px;margin-right: 0;}
+			.nationality{width: 83px;}
+			.occupation{width: 113px;}
+			.city{width: 119px;margin-right: 6px;}
+			.signup_box .email{width: 270px;margin-right: 0;}
+			.signup_box textarea{
+				width: 890px;
+				height: 85px;
+				border: none;
+				color: #540177;
+				padding: 3px 6px;
+				background: url(../img/white_bg.png) repeat 0 0;}
 
 
 
