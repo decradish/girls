@@ -54,8 +54,8 @@
 			<a title="首页" href="#">首页</a>
 			<a title="赛事介绍" href="#">赛事介绍</a>
 			<a title="大赛咨询" href="#">大赛咨询</a>
-			<a title="选手靓影" href="#">选手靓影</a>
-			<a title="我要参加" href="#">我要参加</a>
+			<a class="nav_3" title="选手靓影" href="#">选手靓影</a>
+			<a class="current" title="我要参加" href="#">我要参加</a>
 		</div><!-- /.nav -->
 	</header>
 
@@ -833,16 +833,192 @@
 		</div><!-- /.signup_box -->
 
 		<h2>身体条件 (必填项)</h2>
-		<div class="signup_box">
+		<div class="signup_box signup_box_body">
 			身高：
-			<input type="text" name="stature" id="stature" class="stature"> CM
+			<input type="text" maxlength="3" name="stature" id="stature" class="stature"> CM&nbsp;&nbsp;&nbsp;&nbsp;
 
 			体重：
-			<input type="text" name="weight" id="weight" class="weight"> KG
+			<input type="text" maxlength="3" name="weight" id="weight" class="weight"> KG&nbsp;&nbsp;&nbsp;&nbsp;
 
 			鞋码：
-			input:text
+			<input type="text" maxlength="3" name="shoe_size" id="shoe_size" class="shoe_size"> 码<br />
+
+			胸围：
+			<input type="text" maxlength="3" name="bust" id="bust" class="bust"> CM&nbsp;&nbsp;&nbsp;&nbsp;
+
+			腰围：
+			<input type="text" maxlength="3" name="waistline" id="waistline" class="waistline"> CM&nbsp;&nbsp;&nbsp;&nbsp;
+
+			臀围：
+			<input type="text" maxlength="3" name="hipline" id="hipline" class="hipline"> CM
 		</div><!-- /.signup_box -->
+
+		<h2>兴趣爱好(必填项)</h2>
+		<div class="signup_box signup_box_hobby">
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_1">
+				<input type="checkbox" name="hobby[]" id="hobby_1">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label><br />
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+			<label for="hobby_0">
+				<input type="checkbox" name="hobby[]" id="hobby_0">
+				美食
+			</label>
+		</div><!-- /.signup_box -->
+
+		<h2>具备才艺 (必填一项)</h2>
+		<div class="signup_box">
+			<table class="skill_tb">
+				<tr>
+					<td>演唱－</td>
+					<td>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_3">
+							<input type="checkbox" name="skill[]" id="skill_3">
+							其他演唱
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>演唱－</td>
+					<td>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_3">
+							<input type="checkbox" name="skill[]" id="skill_3">
+							其他演唱
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_3">
+							<input type="checkbox" name="skill[]" id="skill_3">
+							其他演唱
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_0">
+							<input type="checkbox" name="skill[]" id="skill_0">
+							美食
+						</label>
+						<label for="skill_3">
+							<input type="checkbox" name="skill[]" id="skill_3">
+							其他演唱
+						</label>
+					</td>
+				</tr>
+			</table><!-- /.skill_tb -->
+		</div><!-- /.signup_box -->
+
+		<h2>上传照片 (5张必传)</h2>
+		<ul class="photos">
+			<li>
+				<img class="show" src="img/photo.jpg" alt="">
+				<div class="photo_btns">
+					<input type="button" value="设为首图" class="btn">
+					<input type="button" value="重新上传" class="btn">
+				</div><!-- /.photo_btns -->
+			</li>
+			<li>
+				<img src="img/photo.jpg" alt="">
+				<div class="photo_btns">
+					<input type="button" value="设为首图" class="btn">
+					<input type="button" value="重新上传" class="btn">
+				</div><!-- /.photo_btns -->
+			</li>
+			<li>
+				<img src="img/photo.jpg" alt="">
+				<div class="photo_btns">
+					<input type="button" value="设为首图" class="btn">
+					<input type="button" value="重新上传" class="btn">
+				</div><!-- /.photo_btns -->
+			</li>
+			<li>
+				<img src="img/photo.jpg" alt="">
+				<div class="photo_btns">
+					<input type="button" value="设为首图" class="btn">
+					<input type="button" value="重新上传" class="btn">
+				</div><!-- /.photo_btns -->
+			</li>
+			<li>
+				<img src="img/photo.jpg" alt="">
+				<div class="photo_btns">
+					<input type="button" value="设为首图" class="btn">
+					<input type="button" value="重新上传" class="btn">
+				</div><!-- /.photo_btns -->
+			</li>
+		</ul><!-- /.photos -->
 	</div><!-- /.signup -->
 
 	<footer>

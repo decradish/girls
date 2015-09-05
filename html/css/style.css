@@ -32,6 +32,12 @@ a[href^="http://tongji.baidu.com"]{display: none;}
   display: none;
 }
 
+@font-face {
+    /* font-properties */
+    font-family: novecentowide;
+    src:url('NOVECENTOWIDE-MEDIUM.OTF');
+}
+
 
 body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 2px #333;}
 .wrapper{background: url(../img/bg_top.jpg) no-repeat center 0;}
@@ -68,19 +74,23 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				height: 72px;
 				text-indent: -99999px;
 				display: inline-block;}
+				.nav a:first-child{width: 160px;margin-left: 30px;}
+				.nav a.nav_3{width: 150px;margin-right: 40px;}
+				.nav a.current,
+				.nav a:hover{background: url(../img/hover.png) no-repeat center bottom;opacity: 1;}
 	footer{height: 240px;padding-top: 140px;text-align: center;color: #fff;font-size: 14px;}
 	
 	.race_course{color: #fff;}
 		.race_course h1{font-size: 30px;margin-bottom: 10px;font-weight: normal;}
 		.race_course ul{background: url(../img/line.png) no-repeat center -8px;}
-			.race_course li{display: inline-block;text-align: center;font-size: 16px;}
-				.race_course li strong{width: 119px;height: 32px;font-weight: normal;display: block;background: url(../img/course_title_bg.png) no-repeat center 0;line-height: 31px;font-size: 20px;font-weight: normal;margin-bottom: 30px;}
+			.race_course li{display: inline-block;text-align: center;font-size: 16px;font-family: "novecentowide";}
+				.race_course li strong{width: 119px;height: 32px;font-weight: normal;display: block;background: url(../img/course_title_bg.png) no-repeat center 0;line-height: 31px;font-size: 20px;font-weight: normal;margin: 0 auto 30px;}
 				.race_course li.current strong{background-position: center bottom;}
-				li.course_0{margin-right: 26px;}
-				li.course_1{margin-right: 24px;}
-				li.course_2{margin-right: 40px;}
-				li.course_3{margin-right: 50px;}
-				li.course_4{margin-right: 50px;}
+				li.course_0{margin-right: 20px;}
+				li.course_1{margin-right: 10px;}
+				li.course_2{margin-right: 43px;}
+				li.course_3{margin-right: 45px;}
+				li.course_4{margin-right: 40px;}
 
 	.signup{min-height: 945px;padding: 8px 22px;background: url(../img/signup_bg.png) no-repeat center 0;margin-top: 35px;text-shadow: none;}
 		.signup > h1{font-family: '宋体';font-size: 36px;text-align: center;color: #fff;font-weight: normal;line-height: 80px;}
@@ -102,6 +112,39 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				color: #540177;
 				padding: 3px 6px;
 				background: url(../img/white_bg.png) repeat 0 0;}
+		.signup_box_body input{width: 80px;}
+			.signup_box label{display: inline-block;}
+			.signup_box_hobby label{margin-right: 16px;}
+				.signup_box label input[type="checkbox"]{float: left;margin-top: 11px;}
+		.skill_tb label{width: 95px;}
+			.skill_tb td:first-child{padding-right: 10px;white-space: nowrap;vertical-align: top;}	
+		.photos{overflow: hidden;padding: 40px 0;}
+			.photos li{width: 158px;height: 211px;display: block;padding: 2px;margin-left: 27px;float: left;background: url(../img/photo_bg.png) no-repeat center 0;position: relative;}
+			.photos li:first-child{margin-left: 0;}
+				.photos li img{display: none;}
+				.photos li img.show{display: block;}
+				.photos li .photo_btns{
+					width: 158px;
+					height: 211px;
+					position: absolute;
+					top: 2px;
+					display: none;
+					background: url(../img/black_bg.png) repeat 0 0;}
+					.photos li:hover img[class="show"] + .photo_btns{display: block;}
+					.photo_btns > *{
+						width: 122px;
+						height: 39px;
+						line-height: 39px;
+						display: block;
+						margin: 47px auto -11px;
+						font-size: 19px;
+						color: #fff;
+						background: #74179c;
+						border: none;
+						cursor: pointer;
+						text-align: center;}
+						.photo_btns > * + *{background: #306804;}
+			
 
 
 
