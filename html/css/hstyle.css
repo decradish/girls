@@ -1,0 +1,21 @@
+.introduce{
+	width: 810px;
+	height: 500px;
+	background: url(../img/introduce_bg.png) no-repeat;
+	padding:0 76px;
+	overflow: hidden;
+	zoom:1;
+}
+.intro_img_list{
+	margin:0 auto;
+	margin-top: 150px;
+	width: 688px;
+	overflow: hidden;
+	zoom:1;
+}
+.intro_img_list img{
+	display: block;
+	float: left;
+	margin-right: 14px;
+	margin-bottom: 10px;
+}
