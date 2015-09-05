@@ -94,6 +94,8 @@
 
 		<h2>基本资料 (必填项)</h2>
 		<div class="signup_box">
+			<div class="msg"></div>
+
 			姓名：
 			<input type="text" name="user_name" id="user_name" class="user_name">
 
@@ -441,15 +443,9 @@
 			</select>
 
 			出生日期：
-			<select name="year" id="year">
-				<option value="1999">1999</option>
-			</select>
-			<select name="month" id="month">
-				<option value="01">01</option>
-			</select>
-			<select class="birthday_day" name="day" id="day">
-				<option value="01">01</option>
-			</select>
+			<select name="birth_year" id="birth_year" onchange="setDays(this,birth_month,birth_day);"></select>
+			<select name="birth_month" id="birth_month" onchange="setDays(birth_year,this,birth_day);"></select>
+			<select name="birth_day" id="birth_day" class="birth_day"></select>
 
 			身份证:
 			<input type="text" name="id_code" id="id_code" class="id_code" maxlength="19"><br />
@@ -810,21 +806,24 @@
 			<input type="text" name="phone" id="phone" class="phone" maxlength="11">
 
 			学历：
-			<input type="text" name="education" id="education">
+			<input type="text" name="education" id="education" class="education">
+
+			游戏账号：
+			<input type="text" name="game_account" id="game_account" class="game_account">
 
 			参赛项目：
 			<select name="competition_event" id="competition_event">
 				<option selected value="">选择项目</option>
-				<option value="最佳智慧奖 ">最佳智慧奖 </option>
-				<option value="最佳上镜奖 ">最佳上镜奖 </option>
-				<option value="最佳人气奖">最佳人气奖</option>
-				<option value="最具潜质奖 ">最具潜质奖 </option>
-				<option value="最佳体态奖">最佳体态奖</option>
-				<option value="最具活力奖">最具活力奖</option>
-				<option value="最佳时尚奖">最佳时尚奖</option>
-				<option value="最佳演释奖 ">最佳演释奖 </option>
-				<option value="最佳表演奖">最佳表演奖</option>
-				<option value="最受媒体欢迎奖">最受媒体欢迎奖</option>
+				<option value="魅力女神">魅力女神</option>
+				<option value="才艺女神">才艺女神</option>
+				<option value="人气女生">人气女生</option>
+				<option value="活力女神">活力女神</option>
+				<option value="时尚女神">时尚女神</option>
+				<option value="古典女神">古典女神</option>
+				<option value="优雅女神">优雅女神</option>
+				<option value="健美女神">健美女神</option>
+				<option value="才智女神">才智女神</option>
+				<option value="阳光女神">阳光女神</option>
 			</select>
 			<br />
 
@@ -834,6 +833,8 @@
 
 		<h2>身体条件 (必填项)</h2>
 		<div class="signup_box signup_box_body">
+			<div class="msg"></div>
+
 			身高：
 			<input type="text" maxlength="3" name="stature" id="stature" class="stature"> CM&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -853,8 +854,10 @@
 			<input type="text" maxlength="3" name="hipline" id="hipline" class="hipline"> CM
 		</div><!-- /.signup_box -->
 
-		<h2>兴趣爱好(必填项)</h2>
+		<h2>兴趣爱好(必填一项)</h2>
 		<div class="signup_box signup_box_hobby">
+			<div class="msg"></div>
+
 			<label for="hobby_0">
 				<input type="checkbox" name="hobby[]" id="hobby_0">
 				美食
@@ -903,6 +906,8 @@
 
 		<h2>具备才艺 (必填一项)</h2>
 		<div class="signup_box">
+			<div class="msg"></div>
+
 			<table class="skill_tb">
 				<tr>
 					<td>演唱－</td>
@@ -983,6 +988,8 @@
 
 		<h2>上传照片 (5张必传)</h2>
 		<ul class="photos">
+			<div class="msg"></div>
+
 			<li>
 				<img class="show" src="img/photo.jpg" alt="">
 				<div class="photo_btns">
@@ -1019,6 +1026,21 @@
 				</div><!-- /.photo_btns -->
 			</li>
 		</ul><!-- /.photos -->
+
+		<div class="info">温馨提示：上传照片格式可以是 jpg / gif / jpeg / png；上传照片每张不超过1M</div>
+
+		<div class="info">
+			填表说明：<br />
+			1、以上必填项均须填写，不可遗漏。<br />
+			2、本人确认：以上内容属实并准确无误，如大赛组委会查证内容与事实不符，大赛组委会有取消选手资格，并无异议。<br />
+			3、联系方式如有改变，请注意与组委会及时更新。
+		</div><!-- /.info -->
+
+		<div class="btn_wrapper">
+			<input type="submit" value="提交">
+			<input type="submit" value="修改" class="btn_edit">
+			<a href="/" class="btn_cancel">取消</a>
+		</div><!-- /.btn_wrapper -->
 	</div><!-- /.signup -->
 
 	<footer>
