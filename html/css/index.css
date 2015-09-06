@@ -6,9 +6,51 @@
 }
 
 /*--.news--*/
+.race_news_text{margin-left: 13px;}
 .race_news img{
 	width: 480px;
 	height: 270px;
+}
+.news_title{
+	color: #ffacdd;
+	font-size: 27px;
+	margin-bottom: 3px;
+}
+.race_news_content{
+	color:#fee9fd;
+	font-size: 16px;
+	line-height: 20px
+}
+.race_news_border{
+	height: 4px;
+	margin: 10px 0;
+	background: url('../img/index/border.png') no-repeat;
+}
+.news_button{position: relative;}
+.news_bao{
+	width: 195px;
+	height: 43px;
+	background: url(../img/index/bao.png) no-repeat 30px 0;
+}
+.news_game{
+	width: 195px;
+	height: 71px;
+	background: url(../img/index/game.png) no-repeat;
+}
+.news_fish{
+	position: absolute;
+	bottom: 26px;
+	right: -56px;
+	width: 85px;
+	height: 90px;
+	background: url(../img/index/fish.png) no-repeat;
+}
+
+.news_sub_title{
+	color: #f8f0f5;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 5px 0;
 }
 /*--.reward--*/
 
