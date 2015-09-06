@@ -4,6 +4,7 @@
 	background: url('../img/index/title_bg1.png') no-repeat 0 0;
 	/*background-size: 1051px 114px;*/
 }
+
 /*--.news--*/
 .race_news img{
 	width: 480px;
@@ -11,3 +12,54 @@
 }
 /*--.reward--*/
 
+/*--.girls--*/
+.race_girls .title{
+	position: relative;
+	padding-left: 52px;
+	font-size: 36px;
+	color: #fff;
+	height: 119px;
+	line-height: 124px;
+	margin-left: -30px;
+	margin-right: -30px;
+	background: url('../img/index/title_bg.png') no-repeat 0 0;
+}
+.race_girls .title > a {position: absolute;bottom: -16px;right: 0;font-size: 20px;color:#fff;}
+.race_girls .pic .item{
+	/*float: left;*/
+	position: relative;
+}
+
+.race_girls .pic .item + .item{margin-left: 30px;}
+.race_girls .pic .item .item_box{
+	opacity:.2;
+	width: 217px;
+	height: 290px;
+	background: url('../img/index/girlsbox.png') no-repeat 0 0;
+}
+.race_girls .pic .item .item_text{
+	display: none;
+	padding:7px;
+	font-size: 14px;
+	color: #fff;
+	opacity:.7;
+	width: 180px;
+	position: absolute;
+	bottom: 21px;
+	left: 10px;
+	background: #000;
+
+}
+.race_girls .pic .item:hover .item_text{display: block !important;}
+
+.race_girls .pic .item .item_text > div{
+	line-height: 20px;
+}
+.race_girls .pic .item img {
+	position: absolute;
+	top: 10px;
+	left: 9px;
+	width: 195px;
+	height: 259px;
+	opacity: 1;
+}
