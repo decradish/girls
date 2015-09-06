@@ -46,7 +46,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 	header{
 		width: 1206px;
 		height: 746px;
-		padding-top: 24px;
+		padding-top: 20px;
 		margin: 0 0 -100px -27px;
 		background: url(../img/header.png) no-repeat center bottom;}
 		.logos{padding-left: 16px;}
@@ -67,7 +67,8 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 			text-align: center;
 			float: right;
 			margin: 5px 238px 0 0;
-			font-weight: bold;}
+			font-weight: bold;
+			font-family: "novecentowide";}
 		.nav{width: 100%;clear: both;}
 			.nav a{
 				width: 190px;
@@ -93,11 +94,13 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				li.course_4{margin-right: 40px;}
 
 	.signup{min-height: 945px;padding: 8px 22px;background: url(../img/signup_bg.png) no-repeat center 0;margin-top: 35px;text-shadow: none;}
-		.signup > h1{font-family: '宋体';font-size: 36px;text-align: center;color: #fff;font-weight: normal;line-height: 80px;}
+		.signup h1{font-family: '宋体';font-size: 36px;text-align: center;color: #fff;font-weight: normal;line-height: 80px;}
 		.signup h2{height: 30px;line-height: 30px;text-indent: 12px;background: url(../img/white_bg.png) repeat 0 0;color: #990294;font-size: 18px;font-weight: normal;}
 		.signup_box{color: #fdff34;line-height: 38px;padding: 8px 0 8px 16px;font-size: 18px;}
+			.msg,
+			.signup_box .msg{color: red;text-shadow: 1px 1px 1px blue;font-size: 18px;line-height: 20px;}
 			.signup_box input{border: none;background: url(../img/white_bg.png) repeat 0 0;height: 20px;margin-right: 6px;color: #540177;text-indent: 12px;}
-			.birthday_day{margin-right: 6px;}
+			.birth_day{margin-right: 6px;}
 			.user_name{width: 122px;}
 			.native_place{width: 84px;margin-right: 6px;}
 			.signup_box .id_code{width: 220px;margin-right: 0;}
@@ -105,6 +108,8 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 			.occupation{width: 113px;}
 			.city{width: 119px;margin-right: 6px;}
 			.signup_box .email{width: 270px;margin-right: 0;}
+			.phone{width: 135px;}
+			.education{width: 120px;}
 			.signup_box textarea{
 				width: 890px;
 				height: 85px;
@@ -118,8 +123,10 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				.signup_box label input[type="checkbox"]{float: left;margin-top: 11px;}
 		.skill_tb label{width: 95px;}
 			.skill_tb td:first-child{padding-right: 10px;white-space: nowrap;vertical-align: top;}	
-		.photos{overflow: hidden;padding: 40px 0;}
+		.photos{overflow: hidden;padding: 40px 0 20px;}
+			.photos .msg{margin: -10px 0 10px;}
 			.photos li{width: 158px;height: 211px;display: block;padding: 2px;margin-left: 27px;float: left;background: url(../img/photo_bg.png) no-repeat center 0;position: relative;}
+			.photos .msg + li,
 			.photos li:first-child{margin-left: 0;}
 				.photos li img{display: none;}
 				.photos li img.show{display: block;}
@@ -144,6 +151,20 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 						cursor: pointer;
 						text-align: center;}
 						.photo_btns > * + *{background: #306804;}
+		.info{color: #fff;font-size: 14px;line-height: 20px;}
+		.photos + .info{text-align: right;padding-right: 15px;margin-bottom: 50px;}
+		.btn_wrapper{padding: 56px 0;text-align: center;}	
+			.btn_wrapper > *{
+				border: none;
+				margin: 0 20px;
+				line-height: 47px;
+				padding: 0 26px;
+				color: #fff;
+				background-color: #e13007;
+				font-size: 29px;
+				display: inline-block;}
+				.btn_wrapper > .btn_edit{background: #6307e1;}
+				.btn_wrapper > .btn_cancel{background: #052f42;}
 			
 
 
