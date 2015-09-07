@@ -53,6 +53,12 @@
 	margin: 5px 0;
 }
 /*--.reward--*/
+.race_reward{
+	margin-left: -42px;
+	margin-right: -42px;
+	height: 314px;
+	background: url(../img/index/jiangli.png) no-repeat;
+}
 
 /*--.girls--*/
 .race_girls .title{
@@ -66,7 +72,7 @@
 	margin-right: -30px;
 	background: url('../img/index/title_bg.png') no-repeat 0 0;
 }
-.race_girls .title > a {position: absolute;bottom: -16px;right: 0;font-size: 20px;color:#fff;}
+.race_girls .title > a {position: absolute;bottom: -16px;right: 48px;font-size: 20px;color:#fff;}
 .race_girls .pic .item{
 	/*float: left;*/
 	position: relative;
@@ -104,4 +110,14 @@
 	width: 195px;
 	height: 259px;
 	opacity: 1;
+}
+.race_com_title{font-size: 30px;color: #fff;margin-bottom: 10px;}
+.race_com_add{
+	background: #ffffff;
+	opacity: .3;
+	width: 301px;
+	height: 108px;
+}
+.race_com_add + .race_com_add{
+	margin-left: 30px;
 }

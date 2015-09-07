@@ -83,7 +83,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				.nav a:hover{background: url(../img/hover.png) no-repeat center bottom;opacity: 1;}
 	footer{height: 240px;padding-top: 140px;text-align: center;color: #fff;font-size: 14px;}
 	
-	.race_course{color: #fff;}
+	.race_course{color: #fff;margin-top: 25px;}
 		.race_course h1{font-size: 30px;margin-bottom: 10px;font-weight: normal;}
 		.race_course ul{background: url(../img/line.png) no-repeat center -8px;}
 			.race_course li{display: inline-block;text-align: center;font-size: 16px;font-family: "novecentowide";}
