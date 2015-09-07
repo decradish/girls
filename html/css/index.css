@@ -121,3 +121,52 @@
 .race_com_add + .race_com_add{
 	margin-left: 30px;
 }
+
+/*girl_show 页面*/
+.girl_search_box{
+	position: relative;
+	color: #fdff64;
+	font-size: 24px;
+	padding: 0 12px;
+	height: 80px;
+	background: #fff;
+	opacity: .7;
+	z-index: 2;
+	
+}
+.girl_search_sel{
+	width: 316px;
+	height:51px;
+	line-height: 51px;
+	/*background:#c41cee;*/
+	margin: auto 0;
+	padding-left: 13px;
+	background:#c41cee url(../img/index/sarraw.png) no-repeat 278px 10px;
+}
+.girl_search_val{
+	height:51px;
+	background:#c41cee;
+	margin: auto 17px;
+}
+.girlz_search_list{
+	position: absolute;
+	top: 66px;
+	left: 12px;
+	width: 329px;
+	background: #c41cee;
+}
+.girl_search_button{
+	width: 187px;
+	height:51px;
+	line-height: 51px;
+	text-align: center;
+	background:#c41cee;
+	margin: auto 0;
+}
+
+
+
+
+
+
+
