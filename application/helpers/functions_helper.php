@@ -58,6 +58,16 @@ function sock_post($url,$query){
 }
 
 /** 
+ * IsCardNo函数:检测是否为正确的身份证号
+ * 返回值:是正确的身份证号返回身份证号,不是返回false 
+ */ 
+function IsCardNo($Argv){ 
+    // $RegExp='/^[a-z0-9][a-z\.0-9-_]+@[a-z0-9_-]+(?:\.[a-z]{0,3}\.[a-z]{0,2}|\.[a-z]{0,3}|\.[a-z]{0,2})$/i';
+    $RegExp='/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/';
+    return preg_match($RegExp,$Argv)?true:false;
+} 
+
+/** 
  * IsMail函数:检测是否为正确的邮件格式 
  * 返回值:是正确的邮件格式返回邮件,不是返回false 
  */ 

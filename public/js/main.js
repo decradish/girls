@@ -3,26 +3,34 @@ var oBirth = {
 	init: function(){
 		// 添加年份，从1910年开始  
 		for (var i = 1910; i <= new Date().getFullYear(); i++) {  
-		    this.addOption(birth_year, i, i - 1909);  
-		    /*// 默认选中1988年 
-		    if (i == 1988) { 
+		    this.addOption(birth_year, i, i);  
+		    // 选中已选年 
+		    if (i == $('#birth_year').data('year')) { 
 		        birth_year.options[i-1910].selected = true; 
-		    }*/  
+		    }
 		}  
 		// 添加月份  
 		for (var i = 1; i <= 12; i++) {
 			if(i < 10){
 				i = '0'+i;
 			}
-		    this.addOption(birth_month, i, i);  
+		    this.addOption(birth_month, i, i);   
+		    // 选中已选月
+		    if (i == $('#birth_month').data('month')) { 
+		        birth_month.options[parseInt(i)-1].selected = true; 
+		    }
 		}  
 		// 添加天份，先默认31天  
 		for (var i = 1; i <= 31; i++) {
 			if(i < 10){
 				i = '0'+i;
 			}
-		    this.addOption(birth_day, i, i);  
-		} 
+		    this.addOption(birth_day, i, i);   
+		    // 选中已选日
+		    if (i == $('#birth_day').data('day')) { 
+		        birth_day.options[parseInt(i)-1].selected = true; 
+		    } 
+		}
 	},
 	bind: function(){
 
@@ -96,7 +104,7 @@ var oCehck = {
 			if ((fData.charCodeAt(i) < 0) || (fData.charCodeAt(i) > 255)) 
 				intLength=intLength+1 
 			else 
-				intLength=intLength+0.5 
+				intLength=intLength+1
 		} 
 		return intLength 
 	}
@@ -182,6 +190,7 @@ var oSignup = {
 			.find('ul.photos img').each(function(){
 				var oThis = $(this)
 				if(!oThis.hasClass('show')){
+					console.log('请上传5张照片')
 					self.msg(oThis, '请上传5张照片')
 					error ++
 					return false
@@ -197,7 +206,7 @@ var oSignup = {
 		})
 
 		if(error > 0){
-			return false
+			return true
 		}else{
 			return true
 		}

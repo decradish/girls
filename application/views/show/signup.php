@@ -1,15 +1,36 @@
 <?php require_once(dirname(__FILE__).'/'.'../public/header.php');?>
 
-<?php $citis = json_decode(CITIS, true);?>
-<?php $hobby = json_decode(HOBBY, true);?>
+<?php $oriCitis   = json_decode(CITIS, true);?>
+<?php $oriHobby   = json_decode(HOBBY, true);?>
+<?php $oriSkill   = json_decode(SKILL, true);?>
+<?php $oriGoddess = json_decode(GODDESS, true);?>
 
 <?php 
-$skill = array(
+/*
+$oriSkill = array(
 	0 => array(
 		0 => '演唱',
-		1 => array('通俗', '美声', '戏曲', '其他演唱')
+		1 => array('通俗','美声','戏曲','其他演唱')
+	),
+	1 => array(
+		0 => '舞蹈',
+		1 => array('现代','民族','古典','芭蕾','街舞','其他舞蹈')
+	),
+	2 => array(
+		0 => '表演',
+		1 => array('主持','小品','相声','电影','电视','哑剧','其他表演')
+	),
+	3 => array(
+		0 => '乐器',
+		1 => array('钢琴','吉他','笛类','提琴','鼓类','号类','萨克斯','口琴','琵琶','柳琴','古筝','扬琴','二胡','唢呐','马头琴','手风琴','其他乐器')
+	),
+	4 => array(
+		0 => '艺术',
+		1 => array('T台','书法','绘画','插花','服装设计','化妆造型','手工艺','其他艺术')
 	)
 );
+*/
+
 ?>
 
 	<div class="race_course">
@@ -43,76 +64,76 @@ $skill = array(
 	</div><!-- /.race_course -->
 
 	<div id="signup" class="signup">
-		<form action="" method="post" onsubmit="return oSignup.check();">
+		<form action="" method="post" target="_blank" onsubmit="return oSignup.check();">
 		<h1>世界时尚小姐在线报名</h1>
+
+		<div class="msg">
+			<?php echo @$msg;?>
+		</div>
 
 		<h2>基本资料 (必填项)</h2>
 		<div class="signup_box">
 			<div class="msg"></div>
 
 			姓名：
-			<input type="text" name="user_name" id="user_name" class="user_name" placeholder="姓名">
+			<input type="text" name="user_name" id="user_name" class="user_name" placeholder="姓名" value="<?php echo @$user_name;?>">
 
 			籍贯：
 			<select name="native_place" id="native_place" class="native_place" placeholder="籍贯">
 				<option value="">选择省市</option>
-				<?php foreach ($citis as $key => $value) :?>
-				<option value="<?php echo $value;?>"><?php echo $value;?></option>
+				<?php foreach ($oriCitis as $key => $value) :?>
+				<option <?php if($value == @$native_place):?>selected="selected"<?php endif;?> value="<?php echo $value;?>"><?php echo $value;?></option>
 				<?php endforeach;?>
 			</select>
 
+			<?php
+			$aBirth = explode('-', @$birth);
+			?>
 			出生日期：
-			<select placeholder="出生日期" name="birth_year" id="birth_year" onchange="oBirth.setDays(this,birth_month,birth_day);"></select>
-			<select placeholder="出生日期" name="birth_month" id="birth_month" onchange="oBirth.setDays(birth_year,this,birth_day);"></select>
-			<select placeholder="出生日期" name="birth_day" id="birth_day" class="birth_day"></select>
+			<select data-year="<?php echo @$aBirth[0];?>" placeholder="出生日期" name="birth_year" id="birth_year" onchange="oBirth.setDays(this,birth_month,birth_day);"></select>
+			<select data-month="<?php echo @$aBirth[1];?>" placeholder="出生日期" name="birth_month" id="birth_month" onchange="oBirth.setDays(birth_year,this,birth_day);"></select>
+			<select data-day="<?php echo @$aBirth[2];?>" placeholder="出生日期" name="birth_day" id="birth_day" class="birth_day"></select>
 
 			身份证:
-			<input type="text" name="id_code" id="id_code" class="id_code" maxlength="18" placeholder="身份证"><br />
+			<input type="text" name="id_code" id="id_code" class="id_code" maxlength="18" placeholder="身份证" value="<?php echo @$id_code;?>"><br />
 
 			民族：
-			<input type="text" name="nationality" id="nationality" class="nationality" placeholder="民族">
+			<input type="text" name="nationality" id="nationality" class="nationality" placeholder="民族" value="<?php echo @$nationality;?>">
 
 			职业：
-			<input type="text" name="occupation" id="occupation" class="occupation" placeholder="职业">
+			<input type="text" name="occupation" id="occupation" class="occupation" placeholder="职业" value="<?php echo @$occupation;?>">
 
 			所在城市：
 			<select name="city" id="city" class="city" placeholder="所在城市">
 				<option value="">选择省市</option>
-				<?php foreach ($citis as $key => $value) :?>
-				<option value="<?php echo $value;?>"><?php echo $value;?></option>
+				<?php foreach ($oriCitis as $key => $value) :?>
+				<option <?php if($value == @$city):?>selected="selected"<?php endif;?> value="<?php echo $value;?>"><?php echo $value;?></option>
 				<?php endforeach;?>
 			</select>
 
 			E-MAIL:
-			<input type="text" name="email" id="email" class="email" placeholder="E-MAIL"><br />
+			<input type="text" name="email" id="email" class="email" placeholder="E-MAIL" value="<?php echo @$email;?>"><br />
 
 			手机号码：
-			<input type="text" name="phone" id="phone" class="phone" maxlength="11" placeholder="手机号码">
+			<input type="text" name="phone" id="phone" class="phone" maxlength="11" placeholder="手机号码" value="<?php echo @$phone;?>">
 
 			学历：
-			<input type="text" name="education" id="education" class="education" placeholder="学历">
+			<input type="text" name="education" id="education" class="education" placeholder="学历" value="<?php echo @$education;?>">
 
 			游戏账号：
-			<input type="text" name="game_account" id="game_account" class="game_account" placeholder="游戏账号">
+			<input type="text" name="game_account" id="game_account" class="game_account" placeholder="游戏账号" value="<?php echo @$game_account;?>">
 
 			参赛项目：
 			<select name="competition_event" id="competition_event" placeholder="参赛项目">
 				<option selected value="">选择项目</option>
-				<option value="魅力女神">魅力女神</option>
-				<option value="才艺女神">才艺女神</option>
-				<option value="人气女生">人气女生</option>
-				<option value="活力女神">活力女神</option>
-				<option value="时尚女神">时尚女神</option>
-				<option value="古典女神">古典女神</option>
-				<option value="优雅女神">优雅女神</option>
-				<option value="健美女神">健美女神</option>
-				<option value="才智女神">才智女神</option>
-				<option value="阳光女神">阳光女神</option>
+				<?php foreach ($oriGoddess as $key => $value) :?>
+				<option <?php if($value == @$competition_event):?>selected="selected"<?php endif;?> value="<?php echo $value;?>"><?php echo $value;?></option>
+				<?php endforeach;?>
 			</select>
 			<br />
 
 			自我介绍(*限100字)：<br />
-			<textarea name="intro" id="intro" class="intro" placeholder="自我介绍"></textarea>
+			<textarea name="intro" id="intro" class="intro" placeholder="自我介绍"><?php echo @$intro;?></textarea>
 		</div><!-- /.signup_box -->
 
 		<h2>身体条件 (必填项)</h2>
@@ -120,31 +141,31 @@ $skill = array(
 			<div class="msg"></div>
 
 			身高：
-			<input type="text" maxlength="3" name="stature" id="stature" class="stature" placeholder="身高"> CM&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" maxlength="3" name="stature" id="stature" class="stature" placeholder="身高" value="<?php echo @$stature;?>"> CM&nbsp;&nbsp;&nbsp;&nbsp;
 
 			体重：
-			<input type="text" maxlength="3" name="weight" id="weight" class="weight" placeholder="体重"> KG&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" maxlength="3" name="weight" id="weight" class="weight" placeholder="体重" value="<?php echo @$weight;?>"> KG&nbsp;&nbsp;&nbsp;&nbsp;
 
 			鞋码：
-			<input type="text" maxlength="3" name="shoe_size" id="shoe_size" class="shoe_size" placeholder="鞋码"> 码<br />
+			<input type="text" maxlength="3" name="shoe_size" id="shoe_size" class="shoe_size" placeholder="鞋码" value="<?php echo @$shoe_size;?>"> 码<br />
 
 			胸围：
-			<input type="text" maxlength="3" name="bust" id="bust" class="bust" placeholder="胸围"> CM&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" maxlength="3" name="bust" id="bust" class="bust" placeholder="胸围" value="<?php echo @$bust;?>"> CM&nbsp;&nbsp;&nbsp;&nbsp;
 
 			腰围：
-			<input type="text" maxlength="3" name="waistline" id="waistline" class="waistline" placeholder="腰围"> CM&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" maxlength="3" name="waistline" id="waistline" class="waistline" placeholder="腰围" value="<?php echo @$waistline;?>"> CM&nbsp;&nbsp;&nbsp;&nbsp;
 
 			臀围：
-			<input type="text" maxlength="3" name="hipline" id="hipline" class="hipline" placeholder="臀围"> CM
+			<input type="text" maxlength="3" name="hipline" id="hipline" class="hipline" placeholder="臀围" value="<?php echo @$hipline;?>"> CM
 		</div><!-- /.signup_box -->
 
 		<h2>兴趣爱好(必填一项)</h2>
 		<div class="signup_box signup_box_hobby">
 			<div class="msg"></div>
-
-			<?php foreach ($hobby as $key => $value) :?>
+			<?php $hobby = json_decode(@$hobby, true);?>
+			<?php foreach ($oriHobby as $key => $value) :?>
 			<label for="hobby_<?php echo $key;?>">
-				<input type="checkbox" name="hobby[]" id="hobby_<?php echo $key;?>">
+				<input <?php if(!empty($hobby) && in_array($value, $hobby)):?>checked="checked"<?php endif;?> type="checkbox" name="hobby[]" id="hobby_<?php echo $key;?>" value="<?php echo $value;?>">
 				<?php echo $value;?>
 			</label>
 				<?php if(($key+1)%10 == 0):?><br /><?php endif;?>
@@ -156,80 +177,23 @@ $skill = array(
 			<div class="msg"></div>
 
 			<table class="skill_tb">
+				<?php 
+				$skill = json_decode(@$skill, true);
+				$skill_count = 0;
+				foreach ($oriSkill as $key => $value) :?>
 				<tr>
-					<td>演唱－</td>
+					<td><?php echo $value[0];?> －</td>
 					<td>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
+					<?php foreach ($value[1] as $key_son => $value_son) :?>
+						<label for="skill_<?php echo $skill_count;?>">
+							<input <?php if(!empty($skill) && in_array($value_son, $skill)):?>checked="checked"<?php endif;?> type="checkbox" name="skill[]" id="skill_<?php echo $skill_count;?>" value="<?php echo $value_son;?>">
+							<?php echo $value_son;?>
 						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_3">
-							<input type="checkbox" name="skill[]" id="skill_3">
-							其他演唱
-						</label>
+						<?php $skill_count ++;?>
+					<?php endforeach;?>
 					</td>
 				</tr>
-				<tr>
-					<td>演唱－</td>
-					<td>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_1">
-							<input type="checkbox" name="skill[]" id="skill_1">
-							唱歌1
-						</label>
-						<label for="skill_2">
-							<input type="checkbox" name="skill[]" id="skill_2">
-							唱歌
-						</label>
-						<label for="skill_3">
-							<input type="checkbox" name="skill[]" id="skill_3">
-							其他演唱
-						</label>
-						<label for="skill_4">
-							<input type="checkbox" name="skill[]" id="skill_4">
-							唱歌
-						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_3">
-							<input type="checkbox" name="skill[]" id="skill_3">
-							其他演唱
-						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_0">
-							<input type="checkbox" name="skill[]" id="skill_0">
-							唱歌
-						</label>
-						<label for="skill_3">
-							<input type="checkbox" name="skill[]" id="skill_3">
-							其他演唱
-						</label>
-					</td>
-				</tr>
+				<?php endforeach;?>
 			</table><!-- /.skill_tb -->
 		</div><!-- /.signup_box -->
 
@@ -245,28 +209,28 @@ $skill = array(
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="img/photo.jpg" alt="">
+				<img src="/public/img/photo.jpg" alt="">
 				<div class="photo_btns">
 					<input type="button" value="设为首图" class="btn">
 					<input type="button" value="重新上传" class="btn">
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="img/photo.jpg" alt="">
+				<img src="/public/img/photo.jpg" alt="">
 				<div class="photo_btns">
 					<input type="button" value="设为首图" class="btn">
 					<input type="button" value="重新上传" class="btn">
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="img/photo.jpg" alt="">
+				<img src="/public/img/photo.jpg" alt="">
 				<div class="photo_btns">
 					<input type="button" value="设为首图" class="btn">
 					<input type="button" value="重新上传" class="btn">
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="img/photo.jpg" alt="">
+				<img src="/public/img/photo.jpg" alt="">
 				<div class="photo_btns">
 					<input type="button" value="设为首图" class="btn">
 					<input type="button" value="重新上传" class="btn">
@@ -284,8 +248,8 @@ $skill = array(
 		</div><!-- /.info -->
 
 		<div class="btn_wrapper">
-			<input type="submit" value="提交">
-			<input type="button" value="修改" class="btn_edit" onclick="oSignup.check();">
+			<input name="add_btn" type="submit" value="提交">
+			<input name="edit_btn" type="button" value="修改" class="btn_edit">
 			<a href="/" class="btn_cancel">取消</a>
 		</div><!-- /.btn_wrapper -->
 		</form>
