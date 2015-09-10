@@ -18,7 +18,7 @@ Counter.prototype.init = function(){
         var hour = parseInt(remainingTime%86400/3600) < 10 ? parseTime(remainingTime%86400/3600) : parseInt(remainingTime%86400/3600);
         var min = parseInt(remainingTime%3600/60) < 10 ? parseTime(remainingTime%3600/60) : parseInt(remainingTime%3600/60);
         var sec = parseInt(remainingTime%60) < 10 ?  parseTime(remainingTime%60) : parseInt(remainingTime%60);
-        var text = '<div class="timerBox">距离报名时间结束还有<i>' + day + '</i>天<i>' + hour + '</i>时<i>' + min + '</i>分<i>' + sec + '</i>秒</div>';
+        var text = '<div class="timerBox">距离报名时间结束还有<i class="time_down">' + day + '</i>天<i class="time_down">' + hour + '</i>时<i class="time_down">' + min + '</i>分<i class="time_down">' + sec + '</i>秒</div>';
         that.panel.innerHTML = text
         if(remainingTime <= 0){
         	window.clearInterval(inter);

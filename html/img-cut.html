@@ -1,0 +1,32 @@
+<div class="img_cut_wrap">
+	<div id="img_preview"><img src="" id="target" style="display:none;" /></div>
+    <div id="img_preview_125">
+        <div class="font" style="text-align: left;">头像预览</div>
+        <div class="preview_img_div"><div><img id="preview1" style="display:none;" /></div></div>
+        <div class="font">125px&nbsp;*&nbsp;125px</div>
+    </div>
+    <div id="img_preview_96">
+        <div class="preview_img_div" style="width:94px;height:94px;">
+            <div style="width:94px;height:94px;"><img style="width:96px;height:96px;display:none;" id="preview2"/></div>
+        </div>
+        <div class="font">96px&nbsp;*&nbsp;96px</div>
+    </div>
+    <div id="img_upload_schedule" style="display:none;"><div></div></div>
+    <!--div>
+    	<div class="rotate_left" onclick="rotate(-1)"></div><div class="rotate_left rotate_right" onclick="rotate(1)"></div>
+    	<div class="clear"></div>
+    </div-->
+    <div class="img_upload_ctrl">
+    	<form method="post" onclick="">
+			<input type="hidden" id="x" name="x" />
+			<input type="hidden" id="y" name="y" />
+			<input type="hidden" id="w" name="w" />
+			<input type="hidden" id="h" name="h" />
+			<input type="hidden" id="rotate" name="rotate" />
+            <input type="submit" class="input_button" style="float:left;" value="保存头像" />
+		</form>
+        <div class="img_up_cancel">
+        	<input type="submit" class="input_button input_cancel" style="float:left;" value="取消" />
+        </div>
+    </div>
+</div>

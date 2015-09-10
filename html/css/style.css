@@ -169,16 +169,18 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				.btn_wrapper > .btn_cancel{background: #052f42;}
 			
 .timerBox{
-	height: 197px;
+	height: 272px;
 	line-height: 200px;
 	text-align: center;
 	color: #f8f0f5;
-	font-size: 30px;
+	font-size: 28px;
+	margin-top: -40px;
 	margin-left: -39px;
 	margin-right: -39px;
-	background: url('../img/index/timer.png') no-repeat 0 0;
+	background: url('../img/index/timer.png') no-repeat left bottom;
 }
 .timerBox i {font-size: 51px;padding: 0 10px;font-family: 'novecentowide';}
+.timerBox i.time_down{width: 64px; display: inline-block; }
 
 
 
