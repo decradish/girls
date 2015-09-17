@@ -33,38 +33,143 @@ $oriSkill = array(
 
 ?>
 
-	<div class="race_course">
-		<h1>赛事进程</h1>
-		<ul>
-			<li class="course_0 current">
-				<strong>赛事报名</strong>
-				9月10日-9月29日
-			</li>
-			<li class="course_1">
-				<strong>百强选拔赛</strong>
-				9月30日-10月29日
-			</li>
-			<li class="course_2">
-				<strong>30强选拔赛</strong>
-				10月30日-11月29日
-			</li>
-			<li class="course_3">
-				<strong>20强选拔赛</strong>
-				12月10日
-			</li>
-			<li class="course_4">
-				<strong>10强选拔赛</strong>
-				12月17日
-			</li>
-			<li class="course_5">
-				<strong>总决赛</strong>
-				12月26日
-			</li>
-		</ul>
-	</div><!-- /.race_course -->
+<div class="none">
+	<div id="login22">
+		
+		<!--
+		<input type="text" name="username" id="username"><br />
+		<input type="password" name="password" id="password"><br />
+		<input type="button" id="login_btn" value="登录">
+		<a href="javascript:lightbox('#signup_ezone')">注册</a>
+		-->
+
+	</div><!-- /#login -->
+
+	<div id="login" class="login_wrap">
+		<div class="login">
+			<div class="login_item">
+				<label for="username">用户名：</label>
+				<input class="login_ipt" type="text" name="username" id="username" />
+			</div>
+			<div class="login_item">
+				<label for="pwd">密码：</label>
+				<input class="login_ipt" type="password" name="password" id="password" />
+			</div>
+			<div class="login_item">
+				<input type="checkbox" name="remember" id="remember" class="remember" />
+				<label for="remember">记住密码</label>
+				<a href="javascript:lightbox('#signup_ezone')" class="signupenter">注册亿众通行证</a>
+			</div>
+			<div class="login_item">
+				<a href="javascript:void(0)" class="login_btn">登录</a>
+			</div>
+			<div class="login_warn">
+				账号或密码错误，请重新输入！
+			</div>
+		</div>
+	</div><!-- /.login_wrap -->
+
+	<div id="signup_ezoneaaaaaa">
+		<!--
+		<input type="text" name="username_ezone" id="username_ezone"><br />
+		<input type="password" name="password_ezone" id="password_ezone"><br />
+		<input type="password" name="repassword_ezone" id="repassword_ezone"><br />
+		<input type="text" name="realname_ezone" id="realname_ezone"><br />
+		<input type="text" name="id_no_ezone" id="id_no_ezone"><br />
+		<input type="text" name="phone_ezone" id="phone_ezone"><br />
+		<input type="button" id="signup_ezone_btn" value="注册">
+		-->
+	</div><!-- /#signup_ezone -->
+
+	<div id="signup_ezone" class="signup_wrap user_wrap">
+		<div class="isignup">
+			<div class="signup_item">
+				<label for="username">用户名：</label>
+				<input class="signup_ipt" type="text" maxlength='12' placeholder='3-12个字，支持中文、英文、数字!' name="username_ezone" id="username_ezone" />
+			</div>
+			<div class="signup_item">
+				<label for="pwd">密码：</label>
+				<input class="signup_ipt" type="password" placeholder='至少6位' name="password_ezone" id="password_ezone" />
+			</div>
+			<div class="signup_item">
+				<label for="pwd">重复密码：</label>
+				<input class="signup_ipt" type="password" name="repassword_ezone" id="repassword_ezone" />
+			</div>
+			<div class="signup_line"></div>
+			<div class="signup_item">
+				<label for="pwd">真实姓名：</label>
+				<input class="signup_ipt" type="text" name="realname_ezone" id="realname_ezone" />
+			</div>
+			<div class="signup_item">
+				<label for="pwd">身份证号码：</label>
+				<input class="signup_ipt" type="text" name="id_no_ezone" id="id_no_ezone" />
+			</div>
+			<div class="signup_item">
+				<label for="pwd">手机号：</label>
+				<input class="signup_ipt" type="text" name="phone_ezone" id="phone_ezone" />
+			</div>
+			<div class="signup_line"></div>
+			<div class="signup_item">
+				<input type="checkbox" name="" id="read" class="read" />
+				<label for="remember" class="read_label">阅读并接受《亿众时代协议》</label>
+			</div>
+			<div class="signup_item">
+				<a href="javascript:void(0)" id="signup_ezone_btn" class="signup_btn">提交</a>
+				<a href="javascript:void(0)" class="signup_cancel_btn">取消</a>
+			</div>
+			<div class="signup_warn">
+			</div>
+		</div>	
+	</div><!-- /#signup_ezone -->
+</div><!-- /.none -->
+
+<script type="text/javascript">
+function lightbox(target){
+	$.fancybox.close()
+	$.fancybox({
+		href: target
+	})
+}
+$(function(){
+	<?php if(isset($login) && $login === false):?>
+	lightbox('#login')
+	<?php endif;?>
+
+	$('#login_btn').click(function(event) {
+		$.ajax({
+			url: '/login/',
+			type: 'post',
+			data: {
+				username: $('#username').val(),
+				password: $('#password').val()
+			},
+			dataType: 'json',
+			success: function(data){
+				// console.log(data)
+				var data = eval('(' + data + ')')
+				if(data.code && data.code == 1){
+					$.fancybox.close();
+					alert('登录成功')
+				}else{
+					alert('用户名或密码错误，请重试')
+				}
+			},
+			error: function(data){
+				// console.log('error: ', data)
+			}
+		})
+	})
+
+	$('#signup_ezone_btn').click(function(event) {
+		
+	})
+})
+</script>
+
+	<?php require_once(dirname(__FILE__).'/'.'../public/race_course.php');?>
 
 	<div id="signup" class="signup">
-		<form action="" method="post" target="_blank" onsubmit="return oSignup.check();">
+		<form action="" method="post" onsubmit="return oSignup.check();">
 		<h1>世界时尚小姐在线报名</h1>
 
 		<div class="msg">
@@ -198,47 +303,104 @@ $oriSkill = array(
 		</div><!-- /.signup_box -->
 
 		<h2>上传照片 (5张必传)</h2>
-		<ul class="photos">
+		<ul id="photos" class="photos">
 			<div class="msg"></div>
 
+			<?php 
+			$aImage = json_decode(@$image, true);
+			$aImage['src'] = json_decode($aImage['src'], true);
+			if(isset($aImage['src']) && !empty($aImage['src'])):
+				foreach ($aImage['src'] as $key => $value) :
+			?>
+				<li>
+					<img src="<?php echo $value;?>" class="show" alt="">
+					<input type="file" name="image" id="img_<?php echo $key;?>">
+					<input type="hidden" name="image_src[]" id="img_src_<?php echo $key;?>" value="<?php echo $value;?>">
+					<div class="photo_btns">
+						<input type="button" value="设为首图" class="btn to_leader">
+						<a href="javascript:void(0);" class="btn reupload">
+							重新上传
+							<input type="file" name="image" id="reupload_<?php echo $key;?>">
+						</a>
+					</div><!-- /.photo_btns -->
+				</li>
+			<?php
+				endforeach;
+			else:
+			?>
 			<li>
-				<img class="show" src="/public/img/photo.jpg" alt="">
+				<img src="" alt="">
+				<input type="file" name="image" id="img_0">
+				<input type="hidden" name="image_src[]" id="img_src_0">
 				<div class="photo_btns">
-					<input type="button" value="设为首图" class="btn">
-					<input type="button" value="重新上传" class="btn">
+					<input type="button" value="设为首图" class="btn to_leader">
+					<a href="javascript:void(0);" class="btn reupload">
+						重新上传
+						<input type="file" name="image" id="reupload_0">
+					</a>
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="/public/img/photo.jpg" alt="">
+				<img src="" alt="">
+				<input type="file" name="image" id="img_1">
+				<input type="hidden" name="image_src[]" id="img_src_1">
 				<div class="photo_btns">
-					<input type="button" value="设为首图" class="btn">
-					<input type="button" value="重新上传" class="btn">
+					<input type="button" value="设为首图" class="btn to_leader">
+					<a href="javascript:void(0);" class="btn reupload">
+						重新上传
+						<input type="file" name="image" id="reupload_1">
+					</a>
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="/public/img/photo.jpg" alt="">
+				<img src="" alt="">
+				<input type="file" name="image" id="img_2">
+				<input type="hidden" name="image_src[]" id="img_src_2">
 				<div class="photo_btns">
-					<input type="button" value="设为首图" class="btn">
-					<input type="button" value="重新上传" class="btn">
+					<input type="button" value="设为首图" class="btn to_leader">
+					<a href="javascript:void(0);" class="btn reupload">
+						重新上传
+						<input type="file" name="image" id="reupload_2">
+					</a>
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="/public/img/photo.jpg" alt="">
+				<img src="" alt="">
+				<input type="file" name="image" id="img_3">
+				<input type="hidden" name="image_src[]" id="img_src_3">
 				<div class="photo_btns">
-					<input type="button" value="设为首图" class="btn">
-					<input type="button" value="重新上传" class="btn">
+					<input type="button" value="设为首图" class="btn to_leader">
+					<a href="javascript:void(0);" class="btn reupload">
+						重新上传
+						<input type="file" name="image" id="reupload_3">
+					</a>
 				</div><!-- /.photo_btns -->
 			</li>
 			<li>
-				<img src="/public/img/photo.jpg" alt="">
+				<img src="" alt="">
+				<input type="file" name="image" id="img_4">
+				<input type="hidden" name="image_src[]" id="img_src_4">
 				<div class="photo_btns">
-					<input type="button" value="设为首图" class="btn">
-					<input type="button" value="重新上传" class="btn">
+					<input type="button" value="设为首图" class="btn to_leader">
+					<a href="javascript:void(0);" class="btn reupload">
+						重新上传
+						<input type="file" name="image" id="reupload_4">
+					</a>
 				</div><!-- /.photo_btns -->
 			</li>
+			<?php
+			endif;
+			?>
+			<input type="hidden" name="leader_img" id="leader_img" value="0">
 		</ul><!-- /.photos -->
 
 		<div class="info">温馨提示：上传照片格式可以是 jpg / gif / jpeg / png；上传照片每张不超过1M</div>
+
+		<div class="msg"></div>
+		<label class="portrait_authority_label" for="portrait_authority">
+			<input type="checkbox" name="portrait_authority" id="portrait_authority">
+			<a target="_blank" href="/public/选手肖像权授权书.docx">同意肖像授权</a>
+		</label>
 
 		<div class="info">
 			填表说明：<br />
@@ -248,11 +410,182 @@ $oriSkill = array(
 		</div><!-- /.info -->
 
 		<div class="btn_wrapper">
+			<?php if(!isset($signuped)):?>
 			<input name="add_btn" type="submit" value="提交">
-			<input name="edit_btn" type="button" value="修改" class="btn_edit">
+			<?php else:?>
+			<input name="edit_btn" type="submit" value="修改" class="btn_edit">
+			<?php endif;?>
 			<a href="/" class="btn_cancel">取消</a>
 		</div><!-- /.btn_wrapper -->
 		</form>
 	</div><!-- /.signup -->
 
+	<?php /*
+	<form action="/signup/upload_img/" method="post" enctype="multipart/form-data">
+		<input type="file" name="image" id="image">
+		<input id="spanButtonPlaceHolder" type="submit" value="上传">
+	</form>
+	*/?>
+
+	<script type="text/javascript" src="/public/js/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="/public/js/jquery.Jcrop.min.js"></script>
+	<script type="text/javascript">
+	var oPhotos = $('#photos'),
+		oNewImg = oPhotos.find('img'),
+		iImgIdx = 0,
+		oNewImgFile = oPhotos.find('li > input:file'),
+		oReupload = oPhotos.find('.reupload input:file'),
+		o2Leader = oPhotos.find('.to_leader')
+
+	oNewImgFile.change(function(event) {
+		upload_img(this)
+	})
+	oReupload.change(function(event) {
+		upload_img(this)
+	})
+	o2Leader.click(function(event) {
+		var oThis = $(this),
+			iIdx = oThis.parents("li:first").index()
+		$('#leader_img').val(iIdx)
+	})
+
+	function upload_img(obj){
+		var oThis = $(obj)
+		iImgIdx = oThis.parents('li:first').index()-1
+
+		$.ajaxFileUpload({
+			url: '/signup/upload_img/',
+			secureuri: false,
+			fileElementId: oThis.attr('id'),
+			dataType: 'json',
+			success: function(data, status){
+				// console.log(data)
+
+				lightbox('#jcrop_lg')
+
+		        if (jcrop_api) {
+		            jcrop_api.destroy();
+		        }
+				$('#preview1').attr('src', data.url).show()
+				$("#target")
+					.attr('src', data.url).show()
+					.Jcrop( {
+					    setSelect : [ 0, 0, 353, 471 ],
+					    onChange : updatePreview,
+					    onSelect : updatePreview,
+					    onSelect : updateCoords,
+					    aspectRatio : 353/471
+					}, function() {
+					    var bounds = this.getBounds();
+					    boundx = bounds[0];
+					    boundy = bounds[1];
+					    jcrop_api = this;
+					    // $(".jcrop-holder").css('margin-top', (304 - boundy)/2);
+					    updatePreview(jcrop_api.tellSelect());
+					    updateCoords(jcrop_api.tellSelect());
+					    isUploaded = true;
+					});
+			},
+			error: function(data, status, e){
+				// console.log('error: ', data+', '+status+', '+e)
+				alert('上传失败，请重试')
+			}
+		})
+	}
+
+	function resize_img(){
+		var oData = {
+			x: $('#x').val(),
+			y: $('#y').val(),
+			w: $('#w').val(),
+			h: $('#h').val(),
+			img: $('#target').attr('src')
+		}
+		// console.log(oData)
+
+		$.ajax({
+			url: '/signup/resize_img/',
+			type: 'post',
+			data: oData,
+			dataType: 'json',
+			success: function(data){
+				// console.log(data)
+				if(data.status == true){
+					$.fancybox.close()
+
+					oNewImg.eq(iImgIdx)
+						.addClass('show')
+						.attr('src', oData.img+'?type=new')
+						.nextAll('input[type="hidden"]').val(oData.img)
+				}else{
+					alert('提交失败，请重试')
+				}
+			},
+			error: function(data){
+				// console.log('error: ', data)
+				alert('提交失败，请重试')
+			}
+		})
+	}
+	</script>
+
+<div class="none">
+	<div id="jcrop_lg" class="jcrop_lg">
+		<div id="img_preview">
+			<div id="target_wrapper">
+				<img id="target" src="" alt="">
+			</div><!-- /#target_wrapper -->
+
+			<div id="img_preview_158_211">
+                <div class="font">预览</div>
+                <div class="preview_img_div">
+                	<div>
+		                <img id="preview1" src="">
+                	</div>
+                </div>
+            </div>
+		</div><!-- /#img_preview -->
+
+		<div class="clearfix"></div>
+
+		<div class="btn_wrapper">
+			<input type="hidden" name="x" id="x">
+			<input type="hidden" name="y" id="y">
+			<input type="hidden" name="w" id="w">
+			<input type="hidden" name="h" id="h">
+
+			<a id="resie_img_btn" class="add_btn" href="javascript:resize_img();">提交</a>
+			<a class="btn_cancel" href="javascript:$.fancybox.close();">取消</a>
+		</div><!-- /.btn_wrapper -->
+	</div><!-- /#jcrop_lg -->
+</div><!-- /.none -->
+		
+	<script type="text/javascript">
+
+		function updateCoords(c) {
+		    $('#x').val(c.x);
+		    $('#y').val(c.y);
+		    $('#w').val(c.w);
+		    $('#h').val(c.h);
+		}
+		function checkCoords() {
+		    if (parseInt($('#w').val()))
+		        return true;
+		    alert('Please select a crop region then press submit.');
+		    return false;
+		}
+		function updatePreview(c) {
+		    var rx = 158 / c.w;
+		    var ry = 211 / c.h;
+		    $('#preview1').css( {
+		        width : Math.round(rx * boundx) + 'px',
+		        height : Math.round(ry * boundy) + 'px',
+		        marginLeft : '-' + Math.round(rx * c.x) + 'px',
+		        marginTop : '-' + Math.round(ry * c.y) + 'px'
+		    })
+		};
+	</script>
+
+	<script type="text/javascript" src="/public/js/howe.js"></script>
+	<script type="text/javascript" src="/public/js/signup.js"></script>
 <?php require_once(dirname(__FILE__).'/'.'../public/footer.php');?>

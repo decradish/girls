@@ -93,6 +93,11 @@ class Ori_model extends CI_Model {
 		return $query;
 	}
 
+	public function mDeleteBy($field, $value, $table=DEFAULT_TB){
+		$query = $this->db->delete($table, array($field => $value));
+		return $query;
+	}
+
 	public function mCountBy($by='id', $value='', $table=DEFAULT_TB){
 		$this->db->where($by, $value);
 		$this->db->from($table);
@@ -103,5 +108,12 @@ class Ori_model extends CI_Model {
 	public function mCountAll($table=DEFAULT_TB){
 		$query = $this->db->count_all_results($table);
 		return $query;
+	}
+
+	public function mSearch($by='', $value='', $table=DEFAULT_TB){
+		$this->db->from($table);
+		$query = $this->db->like($by, $value, 'both');
+		$result = $query->get()->result_array();
+		return $result;
 	}
 }

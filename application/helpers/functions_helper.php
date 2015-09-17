@@ -1,6 +1,33 @@
 <?php
 $CI =& get_instance(); // Get the global CI object
 
+function check_login(){
+    $id = 0;
+    $username = '';
+    if(!empty($_COOKIE['ezone'])){
+        $aCookie = explode('##', base64_decode($_COOKIE['ezone']));
+        if($aCookie[2] == md5($aCookie[0].$aCookie[1].SECRET_KEY)){
+            $id = $_SESSION['id'] = $aCookie[0];
+            $username = $_SESSION['username'] = $aCookie[1];
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function my_curl($uri, $data){
+    $ch = curl_init ();
+    curl_setopt ( $ch, CURLOPT_URL, $uri );
+    curl_setopt ( $ch, CURLOPT_POST, 1 );
+    curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+    curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+    curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+    $return = curl_exec ( $ch );
+    curl_close ( $ch );
+    return $return;
+}
+
 function fOb2Arr($ob=''){
     foreach ($ob as $key => $value) {
         $ob[$key] = (array)$value;

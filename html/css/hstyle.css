@@ -510,3 +510,112 @@
  	margin-top: -255px;
  }
 
+.login{
+	height: 169px;
+	width: 444px;
+	padding-top: 90px;
+	margin:0 auto;
+	background: url(../img/loginbox.png) no-repeat;
+}
+.isignup{
+	height: 385px;
+	width: 444px;
+	padding-top: 90px;
+	margin:0 auto;
+	background: url(../img/signupbox.png) no-repeat;
+}
+.login_item,.signup_item{
+	margin:0 auto;
+	margin-bottom: 10px;
+	width: 310px;
+	overflow: hidden;
+	zoom:1;
+}
+.signup_item{
+	width: 342px;
+	text-align: center;
+}
+.signup_line{
+	width: 400px;
+	height: 1px;
+	margin: 20px auto;
+	background: rgba(255,255,255,0.4);
+}
+.login_item label,.signup_item label{
+	display: inline-block;
+	width: 74px;
+	font-size: 18px;
+	color: #FFF;
+	text-align: right;
+}
+.signup_item label{
+	width: 108px;
+}
+.signup_item label.read_label{
+	width: 216px;
+	font-size: 16px;
+}
+.login_item input.login_ipt,.signup_item input.signup_ipt{
+	width: 220px;
+	padding: 2px 5px;
+	height: 18px;
+	border: 0;
+	background: rgba(255,255,255,0.6);
+}
+.remember{
+	margin-left: 74px;
+}
+.read{
+	margin-left: 86px;
+}
+.signupenter{
+	font-size: 18px;
+	color: #2be400;
+	margin-left: 15px;
+}
+.login_btn{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	color: #fff;
+	background: #c90055;
+	padding: 0 40px;
+	text-shadow:none;
+	float: right;
+}
+.signup_btn,.signup_cancel_btn{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	color: #fff;
+	padding: 0 50px;
+	text-shadow:none;
+	margin:0 15px;
+	margin-top: 10px;
+}
+.signup_btn{
+	background: #c90055;
+}
+.signup_cancel_btn{
+	background: #052f42;
+}
+.login_warn, .signup_warn{
+	display: none;
+	height: 44px;
+	width: 356px;
+	margin:0 auto;
+	margin-top: -135px;
+	position: relative;
+	line-height: 44px;
+	font-size: 20px;
+	padding:0 30px;
+	background: rgba(0,0,0,0.9);
+	border-radius: 5px;
+	color: #fff;
+	text-align: center;
+}
+ .signup_warn{
+ 	margin-top: -255px;
+ }

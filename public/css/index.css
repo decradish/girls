@@ -1,12 +1,200 @@
 /*--common--*/
 .index_title{
-	background: url('../img/index/title_bg.png') no-repeat;
-	background-size: 1021px 119px;
+	height: 114px;
+	background: url('../img/index/title_bg1.png') no-repeat 0 0;
+	/*background-size: 1051px 114px;*/
 }
+
 /*--.news--*/
+.race_news_text{margin-left: 13px;}
 .race_news img{
 	width: 480px;
 	height: 270px;
 }
+.news_title{
+	height: 31px;
+	overflow: hidden;
+	color: #ffacdd;
+	font-size: 27px;
+	margin-bottom: 3px;
+}
+.race_news_content{
+	height: 40px;
+	overflow: hidden;
+	color:#fee9fd;
+	font-size: 16px;
+	line-height: 20px;
+}
+.news_title + .race_news_content{
+	height: 100px;
+}
+.race_news_border{
+	height: 4px;
+	margin: 10px 0;
+	background: url('../img/index/border.png') no-repeat;
+}
+.news_button{position: relative;}
+.news_bao{
+	width: 195px;
+	height: 43px;
+	display: block;
+	text-indent: -99999px;
+	background: url(../img/index/bao.png) no-repeat 30px 0;
+}
+.news_game{
+	width: 195px;
+	height: 71px;
+	display: block;
+	text-indent: -99999px;
+	background: url(../img/index/game.png) no-repeat;
+}
+.news_fish{
+	position: absolute;
+	bottom: 26px;
+	right: -56px;
+	width: 85px;
+	height: 90px;
+	background: url(../img/index/fish.png) no-repeat;
+}
+
+.news_sub_title{
+	color: #f8f0f5;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 5px 0;
+}
 /*--.reward--*/
+.race_reward{
+	margin-left: -42px;
+	margin-right: -42px;
+	height: 314px;
+	background: url(../img/index/jiangli.png) no-repeat;
+}
+
+/*--.girls--*/
+.race_girls .title{
+	position: relative;
+	padding-left: 52px;
+	font-size: 36px;
+	color: #fff;
+	height: 119px;
+	line-height: 124px;
+	margin-left: -30px;
+	margin-right: -30px;
+	background: url('../img/index/title_bg.png') no-repeat 0 0;
+}
+.race_girls .title > a {position: absolute;bottom: -16px;right: 48px;font-size: 20px;color:#fff;}
+.race_girls .pic .item{
+	/*float: left;*/
+	position: relative;
+}
+
+.race_girls .pic .item + .item{margin-left: 30px;}
+.race_girls .pic .item .item_box{
+	opacity:.2;
+	width: 217px;
+	height: 290px;
+	background: url('../img/index/girlsbox.png') no-repeat 0 0;
+}
+.race_girls .pic .item .item_text{
+	display: none;
+	padding:7px;
+	font-size: 14px;
+	color: #fff;
+	opacity:.7;
+	width: 180px;
+	position: absolute;
+	bottom: 21px;
+	left: 10px;
+	background: #000;
+
+}
+.race_girls .pic .item:hover .item_text{display: block !important;}
+
+.race_girls .pic .item .item_text > div{
+	line-height: 20px;
+}
+.race_girls .pic .item img {
+	position: absolute;
+	top: 10px;
+	left: 9px;
+	width: 195px;
+	height: 259px;
+	opacity: 1;
+}
+.race_com_title{font-size: 30px;color: #fff;margin-bottom: 10px;}
+.race_com_add{
+	background: #ffffff;
+	opacity: .3;
+	width: 301px;
+	height: 108px;
+}
+.race_com_add + .race_com_add{
+	margin-left: 30px;
+}
+
+/*girl_show 页面*/
+.girl_search_box{
+	position: relative;
+	color: #fdff64;
+	font-size: 24px;
+	padding: 0 11px;
+	height: 80px;
+	background: #fff;
+	z-index: 2;
+	text-shadow: none;
+}
+.girl_search_sel{
+	width: 316px;
+	height:51px;
+	line-height: 51px;
+	/*background:#c41cee;*/
+	margin: auto 0;
+	padding-left: 13px;
+	cursor: pointer;
+	background:#c41cee url(../img/index/sarraw.png) no-repeat 278px 10px;
+}
+.girl_search_sel.up{
+	background-image: url(../img/index/sarraw_up.png);
+}
+.girl_search_val{
+	color: #fdff64;
+	text-indent: 10px;
+	height:51px;
+	background:#c41cee;
+	margin: auto 17px;
+}
+.girlz_search_list{
+	position: absolute;
+	top: 66px;
+	left: 11px;
+	width: 329px;
+	cursor: pointer;
+	background: #c41cee;
+}
+.girlz_search_list li{
+	text-indent: 10px;
+	padding: 3px 0;
+}
+.girlz_search_list li:hover{
+	color: #c41cee;
+	background: #fdff64;
+}
+.girl_search_button{
+	width: 187px;
+	height:51px;
+	line-height: 51px;
+	text-align: center;
+	background:#c41cee;
+	margin: auto 0;
+	border: none;
+	display: block;
+	color: #fdff64;
+}
+
+
+
+
+
+
 

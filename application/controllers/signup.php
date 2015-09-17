@@ -27,13 +27,30 @@ class Signup extends CI_Controller {
 		header("Content-type: text/html; charset=utf-8");
 		$data = array();
 		$data['signup'] = true;
+		$data['girl_count'] = $this->Ori_model->mCountAll();
+		$aDb = array();
+		$error = 0;
+		$sMsg = '';
+
+		$rel = check_login();
+		if(!$rel){
+			$data['login'] = $aDb['login'] = false;
+			$error ++;
+		}
 
 		if(empty($_POST)){
+			$rel = $this->Ori_model->mGetBy('ezone_id', @$_SESSION['id']);
+
+			if(count($rel) > 0){
+				$data = array_merge($data, $rel[0]);
+				$data['signuped'] = true;
+			}
+
 			$this->load->view('show/signup', $data);
 			return true;
 		}
 
-		$account           = $aDb['account']           = @$_SESSION['account'];
+		$ezone_id          = $aDb['ezone_id']          = @$_SESSION['id'];
 		$user_name         = $aDb['user_name']         = $this->input->post('user_name', TRUE);
 		$native_place      = $aDb['native_place']      = $this->input->post('native_place', TRUE);
 		$birth_year        = $aDb['birth_year']        = $this->input->post('birth_year', TRUE);
@@ -57,9 +74,8 @@ class Signup extends CI_Controller {
 		$hipline           = $aDb['hipline']           = $this->input->post('hipline', TRUE);
 		$hobby             = @$this->input->post('hobby', TRUE);
 		$skill             = @$this->input->post('skill', TRUE);
-
-		$error = 0;
-		$sMsg = '';
+		$img               = @$this->input->post('image_src', TRUE);
+		$leader_img        = $this->input->post('leader_img', TRUE);
 
 		if(empty($user_name)){
 			$sMsg .= '用户名不能为空；';
@@ -205,6 +221,19 @@ class Signup extends CI_Controller {
 			$aDb['skill'] = json_encode($skill, JSON_UNESCAPED_UNICODE);
 		}
 
+		if(empty($img) || count($img) < 5){
+			$sMsg .= '必须上传五张照片；';
+			$error ++;
+		}elseif (!isset($leader_img) && (int)$leader_img > 5) {
+			$sMsg .= '首图不能为空；';
+			$error ++;
+		}else{
+			$image = array();
+			$image['src'] = json_encode($img);
+			$image['leader_img'] = $leader_img;
+			$aDb['image'] = json_encode($image);
+		}
+
 		if($error > 0){
 			$aDb['msg'] = $sMsg;
 			$this->load->view('show/signup', $aDb);
@@ -212,40 +241,119 @@ class Signup extends CI_Controller {
 		}
 
 		$ip = $aDb['ip'] = getRealIp();
+		$ezone_id = $aDb['ezone_id'] = $_SESSION['id'];
 
-		if(isset($this->input->post('add_btn'))){
+		if(isset($_POST['add_btn'])){
+			$rel = $this->Ori_model->mGetBy('ezone_id', $ezone_id);
+			if(count($rel) > 0){
+				$aDb['msg'] = '您已报名，请勿重复报名';
+				$this->load->view('show/signup', $aDb);
+				return false;
+			}
+
 			$rel = $this->Ori_model->mAdd($aDb);
 
 			if($rel){
-				$this->detail($rel);
+				redirect('/player/index/'.$ezone_id);
 			}else{
 				$sMsg .= '报名失败，请稍候重试；';
 				$this->load->view('show/signup', $aDb);
 				return false;
 			}
-		}elseif(isset($this->input->post('edit_btn'))){
-			/*
-			$rel = $this->Ori_model->mUpdateByArray($aDb);
+		}elseif(isset($_POST['edit_btn'])){
+			$rel = $this->Ori_model->mUpdateBy('ezone_id', $ezone_id, $aDb);
 
 			if($rel){
-				$this->detail($rel);
+				redirect('/player/index/'.$ezone_id);
 			}else{
 				$sMsg .= '修改失败，请稍候重试；';
 				$this->load->view('show/signup', $aDb);
 				return false;
 			}
-			*/
 		}
 	}
 
-	public function detail($id=1){
+	public function detail($ezone_id=1){
 		header("Content-type: text/html; charset=utf-8");
 		$data = array();
+		$data['girl_count'] = $this->Ori_model->mCountAll();
 		$data['detail'] = true;
 
-		$rel = $this->Ori_model->mGet($id);
-		var_dump($rel[0]);
-		// $this->load->view('show/detail', $data);
+		$rel = $this->Ori_model->mGetBy('ezone_id', $ezone_id);
+		$this->load->view('show/detail', $data);
+	}
+
+	public function upload_img(){
+		$max_width = 600;
+		$max_height = 600;
+		$aJson = array();
+
+		$config['upload_path']   = './uploads/';
+        $config['allowed_types'] =' gif|jpg|png|jpeg';
+        $config['max_size']      = '10000';
+        $config['file_name']     = md5(uniqid().mt_rand(1,1000000)); //文件名不使用原始名
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('image')){
+            $data = $this->upload->data();
+            $aJson['url'] = '//'.$_SERVER['SERVER_NAME'].'/uploads/'.$data['file_name'];
+
+            if($data['image_width'] > $max_width || $data['image_height'] > $max_height ){
+				if($data['image_width'] > $max_width){
+					$max_height = ($max_width*$data['image_height'])/$data['image_width'];
+				}
+				if($data['image_height'] > $max_height){
+					$max_width = ($max_height*$data['image_width'])/$data['image_height'];
+				}
+
+				$configResize = array(
+					'image_library'  => 'gd2',
+					'source_image'   => './uploads/'.$data['file_name'],
+					'width'          => $max_width,
+					'height'         => $max_height,
+					'create_thumb'   => TRUE,
+					'maintain_ratio' => TRUE
+				);
+
+				$this->load->library('image_lib',$configResize);
+				$this->image_lib->resize();
+
+	            $aJson['url'] = '//'.$_SERVER['SERVER_NAME'].'/uploads/'.$data['raw_name'].'_thumb'.$data['file_ext'];
+            }
+			// header("Content-type: text/json;");
+            die(json_encode($aJson));
+
+        }
+        else{
+            $aJson['error'] = array('error' => $this->upload->display_errors());
+			// header("Content-type: text/json;");
+            die(json_encode($aJson));
+        }
+	}
+
+	public function resize_img(){
+		$x = $this->input->post('x', true);
+		$y = $this->input->post('y', true);
+		$w = $this->input->post('w', true);
+		$h = $this->input->post('h', true);
+		$target = str_replace('//'.$_SERVER['HTTP_HOST'], '.', $this->input->post('img', true));//$_SERVER['HTTP_HOST']
+		$aJson = array();
+
+		$config['x_axis'] = $x; //据图像左上角x轴距离
+		$config['y_axis'] = $y; //据图像左上角y轴距离
+		$config['width']  = $w; //裁剪的宽度
+		$config['height'] = $h; //裁剪的长度
+		$config['image_library'] = 'gd2';
+		$config['maintain_ratio'] = FALSE;
+		$config['source_image'] = $target;
+		// $config['create_thumb'] = TRUE;
+		// $config['encrypt_name'] = true;
+
+		$this->load->library('image_lib',$config);
+		$rel = $this->image_lib->crop();
+
+		$aJson['status'] = $rel;
+        die(json_encode($aJson));
 	}
 }
 

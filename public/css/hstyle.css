@@ -45,8 +45,8 @@
 	background: url(../img/saichengdetail.png) no-repeat;
 }
 .intro_jiangli{
-	height: 258px;
-	background: url(../img/jiangli.png) no-repeat;
+	height: 282px;
+	background: url(../img/jiangli.png?t=2015) no-repeat;
 	margin-bottom: 60px;
 }
 .intro_zhuti{
@@ -99,18 +99,23 @@
 	text-align: center;
 }
 .player_img_big img{
+	width: 353px;
+	height: 471px;
 	margin-top: 10px;
 }
 
 .player_img_small_item{
-	height: 92px;
-	width: 92px;
-	background: rgba(153, 225, 27, 0.3);
+	height: 74px;
+	width: 74px;
+	/*background: rgba(153, 225, 27, 0.3);*/
 	margin-bottom: 7px;
 	text-align: center;
+	overflow: hidden;
+	cursor: pointer;
+	border: 8px solid rgba(153, 225, 27, 0.3);
 }
 .player_img_small_item img{
-	margin-top: 9px;
+	width: 74px;
 }
 .player_img_small_item:last-child{
 	margin-bottom: 0
@@ -220,7 +225,8 @@
 }
 .login_enter input{
 	height: 30px;
-	width: 188px;
+	width: 168px;
+	padding:0 10px;
 	border:0;
 	background: rgba(255,255,255,0.5);
 	
@@ -234,15 +240,298 @@
 	width: 156px;
 	margin-left: 20px;
 }
+.player_comment{
+	margin-top: 30px;
+}
+.comment_item{
+	padding:5px;
+	margin-bottom: 24px;
+	background: rgba(255,255,255,0.1);
+}
+.comment_item .comment_title{
+	height: 28px;
+	font-size: 14px;
+	border-bottom: 1px rgba(69, 7, 91, 0.3) solid;
+	overflow: hidden;
+	zoom:1;
+}
+.comment_item .comment_title span{
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+.comment_item .comment_title span.comment_ctrl{
+	float: right;
+}
+.comment_item .comment_title span.comment_name{
+	color: rgba(255, 237, 118, 0.8);
+}
+.comment_item .comment_title span.comment_time{
+	color: rgba(40,2,72,0.8);
+}
+.comment_item .comment_title span.comment_support{
+	color: rgba(255,246,0,0.8);
+}
+.comment_item .comment_title span.comment_oppose{
+	color: rgba(45,0,40,0.8);
+}
+.comment_content{
+	font-size: 16px;
+	line-height: 24px;
+	padding:4px 0;
+	color: rgba(111,224,1,0.7);
+}
+.comment_page{
+	height: 28px;
+	padding:6px 0;
+	width: 100%;
+	background: rgba(255,255,255,0.1);
+}
+.page_main{
+	text-align: center;
+}
+.page_main span.page_num{
+	color: rgba(253,255,100, 0.8);
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	font-size: 18px;
+	line-height: 28px;
+	/*margin:0 4px;*/
+}
+
+.page_main span.cur{
+	background: #c41cee;
+	border-radius: 13px;
+}
+.page_ctrl{
+	display: inline-block;
+	font-size: 18px;
+	line-height: 28px;
+	height: 28px;
+	padding:0 10px;
+	color: rgba(253,255,100, 0.8);
+	background: #c41cee;
+	margin:0 4px;
+}
 
 
+.login{
+	height: 169px;
+	width: 444px;
+	padding-top: 90px;
+	margin:0 auto;
+	background: url(../img/loginbox.png) no-repeat;
+}
+.isignup{
+	height: 385px;
+	width: 444px;
+	padding-top: 90px;
+	margin:0 auto;
+	background: url(../img/signupbox.png) no-repeat;
+}
+.login_item,.signup_item{
+	margin:0 auto;
+	margin-bottom: 10px;
+	width: 310px;
+	overflow: hidden;
+	zoom:1;
+}
+.signup_item{
+	width: 342px;
+	text-align: center;
+}
+.signup_line{
+	width: 400px;
+	height: 1px;
+	margin: 20px auto;
+	background: rgba(255,255,255,0.4);
+}
+.login_item label,.signup_item label{
+	display: inline-block;
+	width: 74px;
+	font-size: 18px;
+	color: #FFF;
+	text-align: right;
+}
+.signup_item label{
+	width: 108px;
+}
+.signup_item label.read_label{
+	width: 216px;
+	font-size: 16px;
+}
+.login_item input.login_ipt,.signup_item input.signup_ipt{
+	width: 220px;
+	padding: 2px 5px;
+	height: 18px;
+	border: 0;
+	background: rgba(255,255,255,0.6);
+}
+.remember{
+	margin-left: 74px;
+}
+.read{
+	margin-left: 86px;
+}
+.signupenter{
+	font-size: 18px;
+	color: #2be400;
+	margin-left: 15px;
+}
+.login_btn{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	color: #fff;
+	background: #c90055;
+	padding: 0 40px;
+	text-shadow:none;
+	float: right;
+}
+.signup_btn,.signup_cancel_btn{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	color: #fff;
+	padding: 0 50px;
+	text-shadow:none;
+	margin:0 15px;
+	margin-top: 10px;
+}
+.signup_btn{
+	background: #c90055;
+}
+.signup_cancel_btn{
+	background: #052f42;
+}
+.login_warn, .signup_warn{
+	display: none;
+	height: 44px;
+	width: 356px;
+	margin:0 auto;
+	margin-top: -135px;
+	position: relative;
+	line-height: 44px;
+	font-size: 20px;
+	padding:0 30px;
+	background: rgba(0,0,0,0.9);
+	border-radius: 5px;
+	color: #fff;
+	text-align: center;
+}
+ .signup_warn{
+ 	margin-top: -255px;
+ }
 
-
-
-
-
-
-
-
-
-
+.login{
+	height: 169px;
+	width: 444px;
+	padding-top: 90px;
+	margin:0 auto;
+	background: url(../img/loginbox.png) no-repeat;
+}
+.isignup{
+	height: 385px;
+	width: 444px;
+	padding-top: 90px;
+	margin:0 auto;
+	background: url(../img/signupbox.png) no-repeat;
+}
+.login_item,.signup_item{
+	margin:0 auto;
+	margin-bottom: 10px;
+	width: 310px;
+	overflow: hidden;
+	zoom:1;
+}
+.signup_item{
+	width: 342px;
+	text-align: center;
+}
+.signup_line{
+	width: 400px;
+	height: 1px;
+	margin: 20px auto;
+	background: rgba(255,255,255,0.4);
+}
+.login_item label,.signup_item label{
+	display: inline-block;
+	width: 74px;
+	font-size: 18px;
+	color: #FFF;
+	text-align: right;
+}
+.signup_item label{
+	width: 108px;
+}
+.signup_item label.read_label{
+	width: 216px;
+	font-size: 16px;
+}
+.login_item input.login_ipt,.signup_item input.signup_ipt{
+	width: 220px;
+	padding: 2px 5px;
+	height: 18px;
+	border: 0;
+	background: rgba(255,255,255,0.6);
+}
+.remember{
+	margin-left: 74px;
+}
+.read{
+	margin-left: 86px;
+}
+.signupenter{
+	font-size: 18px;
+	color: #2be400;
+	margin-left: 15px;
+}
+.login_btn{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	color: #fff;
+	background: #c90055;
+	padding: 0 40px;
+	text-shadow:none;
+	float: right;
+}
+.signup_btn,.signup_cancel_btn{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	color: #fff;
+	padding: 0 50px;
+	text-shadow:none;
+	margin:0 15px;
+	margin-top: 10px;
+}
+.signup_btn{
+	background: #c90055;
+}
+.signup_cancel_btn{
+	background: #052f42;
+}
+.login_warn, .signup_warn{
+	display: none;
+	height: 44px;
+	width: 356px;
+	margin:0 auto;
+	margin-top: -135px;
+	position: relative;
+	line-height: 44px;
+	font-size: 20px;
+	padding:0 30px;
+	background: rgba(0,0,0,0.9);
+	border-radius: 5px;
+	color: #fff;
+	text-align: center;
+}
+.signup_warn{
+	margin-top: -255px;
+}

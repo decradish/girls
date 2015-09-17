@@ -20,6 +20,9 @@ a[href^="http://tongji.baidu.com"]{display: none;}
 .clear{clear:both; height:0; line-height:0; font-size:0;}
 .none{display: none;}
 
+.fancybox-skin,
+.fancybox-opened .fancybox-skin{background: none;box-shadow: none;}
+
 .display-flexbox {
     display: -webkit-box;   /* 兼容旧的 webkit，Android 2.x */
     display: -webkit-flex;  /* 标准写法 带 webkit 前缀，兼容标准确立之前的 webkit */
@@ -44,7 +47,7 @@ a[href^="http://tongji.baidu.com"]{display: none;}
 body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 2px #333;}
 .wrapper{background: url(../img/bg_top.jpg) no-repeat center 0;}
 .bottom{background: url(../img/bg_bottom.png) no-repeat center bottom;}
-.core{width: 962px;margin: 0 auto;}
+.core{width: 962px;margin: 0 auto;position: relative;}
 	header{
 		width: 1206px;
 		height: 746px;
@@ -83,7 +86,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				.nav a:hover{background: url(../img/hover.png) no-repeat center bottom;opacity: 1;}
 	footer{height: 240px;padding-top: 140px;text-align: center;color: #fff;font-size: 14px;}
 	
-	.race_course{color: #fff;}
+	.race_course{color: #fff;padding-top: 20px;}
 		.race_course h1{font-size: 30px;margin-bottom: 10px;font-weight: normal;}
 		.race_course ul{background: url(../img/line.png) no-repeat center -8px;}
 			.race_course li{display: inline-block;text-align: center;font-size: 16px;font-family: "novecentowide";}
@@ -127,11 +130,19 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 			.skill_tb td:first-child{padding-right: 10px;white-space: nowrap;vertical-align: top;}	
 		.photos{overflow: hidden;padding: 40px 0 20px;}
 			.photos .msg{margin: -10px 0 10px;}
-			.photos li{width: 158px;height: 211px;display: block;padding: 2px;margin-left: 27px;float: left;background: url(../img/photo_bg.png) no-repeat center 0;position: relative;}
+			.photos li{width: 158px;height: 211px;display: block;padding: 2px;margin-left: 27px;float: left;background: url(../img/photo_bg.png) no-repeat center 0;position: relative;position: relative;overflow: hidden;}
+				.photos li > input[type='file']{
+					width: 158px;
+					height: 251px;
+					margin-top: -40px;
+					border: none;
+					/*visibility: hidden;*/
+					position: absolute;}
 			.photos .msg + li,
 			.photos li:first-child{margin-left: 0;}
-				.photos li img{display: none;}
+				.photos li img{width: 158px;height: 211px;display: none;}
 				.photos li img.show{display: block;}
+				.photos li img.show + input[type="file"]{display: none;}
 				.photos li .photo_btns{
 					width: 158px;
 					height: 211px;
@@ -139,7 +150,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 					top: 2px;
 					display: none;
 					background: url(../img/black_bg.png) repeat 0 0;}
-					.photos li:hover img[class="show"] + .photo_btns{display: block;}
+					.photos li:hover img[class="show"] ~ .photo_btns{display: block;}
 					.photo_btns > *{
 						width: 122px;
 						height: 39px;
@@ -151,8 +162,19 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 						background: #74179c;
 						border: none;
 						cursor: pointer;
-						text-align: center;}
+						text-align: center;
+						position: relative;
+						overflow: hidden;}
 						.photo_btns > * + *{background: #306804;}
+						.photo_btns input[type="file"]{
+							width: 122px;
+							height: 79px;
+							border: none;
+							outline: none;
+							top: 0;
+							left: 0;
+							position: absolute;
+							margin-top: -40px;}
 		.info{color: #fff;font-size: 14px;line-height: 20px;}
 		.photos + .info{text-align: right;padding-right: 15px;margin-bottom: 50px;}
 		.btn_wrapper{padding: 56px 0;text-align: center;}	
@@ -164,9 +186,134 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				color: #fff;
 				background-color: #e13007;
 				font-size: 29px;
-				display: inline-block;}
+				display: inline-block;
+				cursor: pointer;}
+				.btn_wrapper > *:hover{text-decoration: none;}
 				.btn_wrapper > .btn_edit{background: #6307e1;}
 				.btn_wrapper > .btn_cancel{background: #052f42;}
+
+		#girl_timer{width: 1064px;height: 322px;margin: -80px 0 -70px -29px;background: url('../img/index/timer.png') no-repeat 0 bottom;overflow: hidden;}		
+		header + #girl_timer{margin-top: -280px;}
+		.timerBox{
+			line-height: 140px;
+			color: #f8f0f5;
+			font-size: 30px;
+			margin-top: 80px;
+			text-indent: 140px;}
+		.timerBox i {width: 60px;text-align: center;text-indent: 0;font-size: 51px;padding: 0 10px;font-family: 'novecentowide';display: inline-block;}
+
+		.girlz_search_list{display: none;}
+		.girl_list{overflow: hidden;margin-right: -34px;}
+			.girl_list.search_girl_list{padding-top: 50px;background: url(../img/girl_list_line.png) no-repeat center 0;}
+			.girl_list a{
+				width: 196px;
+				height: 259px;
+				float: left;
+				display: block;
+				position: relative;
+				padding: 10px 11px 21px 10px;
+				margin: 10px 32px 10px 0;
+				background: url(../img/girlsbox_op.png) no-repeat center 0;}
+				.girl_list a img{width: 195px;height: 259px;display: block;}
+				.girl_list .girl_info{
+					display: none;
+					width: 185px;
+					bottom: 0;
+					color: #ffbdfe;
+					padding: 5px;
+					margin-bottom: 21px;
+					position: absolute;
+					background: url(../img/black_bg.png) repeat 0 0;}
+					.girl_list a:hover .girl_info{display: block;}
+					.girl_info *{display: inline-block;}
+					.girl_info span{}
+					.girl_info p{width: 145px;}
+					.girl_info span:first-child,
+					.girl_info span:first-child + p{color: #ff53e9;}
+					.girl_info .girl_info_game_name{color: #fffa7d;}
+					.girl_info p.girl_info_game_name{width: 109px;}
+
+		.qr_code_warpper{
+			width: 338px;
+			height: 330px;
+			display: block;
+			overflow: hidden;
+			background: url(../img/qr_code_bg.png) no-repeat center 0;}
+			.qr_code_warpper img{display: block;margin: 106px 0 0 94px;}
+		.fancybox-close{margin: 22px 22px 0 0;}
+
+		.jcrop_lg{
+			width: 820px;
+			height: 720px;
+			text-align: center;
+			box-shadow: 0 0 3px #000;
+			background: url(../img/bg.jpg) repeat-y center center;}
+			.jcrop_lg .btn_wrapper{padding: 20px 0;}
+		#target_wrapper{
+			width: 600px;
+			height: 600px;
+			float: left;
+			margin: 20px 20px 0 20px;}
+		#img_preview_158_211{
+			width: 158px;
+			height: 211px;
+			float: left;
+			margin-top: 20px;
+			text-align: center;}
+			#img_preview_158_211 .font{font-size: 18px;color: #fff;padding: 3px 0;}
+		.preview_img_div div {
+			width: 158px;
+			height: 211px;
+			overflow: hidden;
+			border-radius: 5px;}
+
+	.news{}
+		.news a{
+			display: block;
+			font-size: 16px;
+			color: #fff;
+			padding: 6px 0;
+			border-bottom: 1px dotted #ccc;}
+			.news a span{float: right;}
+
+	article{color: #fff;background: url(../img/signup_bg.png) no-repeat center 0;}
+		article > h1{font-size: 22px;font-weight: normal;text-align: center;padding: 20px 0 10px;border-bottom: 1px solid #ccc;}
+			article > h1 span{font-size: 14px;padding-top: 10px;display: block;}
+		.article_content{font-size: 14px;padding: 20px;}
+			.article_content img{display: block;margin: 6px auto;}
+
+	.banner{width: 480px;height: 270px;border: 1px solid #fb40fe;overflow: hidden;}
+		.banner img{width: 478px;height: 268px;display: block;}
+			.slidesjs-pagination{
+				margin-top: -30px;
+				position: relative;
+				z-index: 10;
+				padding-right: 10px;
+				text-align: right;}
+				.slidesjs-pagination li{display: inline-block;margin: 0 3px;}
+					.slidesjs-pagination li a{
+						width: 16px;
+						height: 16px;
+						display: block;
+						background: #fff;
+						border-radius: 8px;
+						opacity: .7;
+						text-indent: -99999px;
+						text-align: center;}
+						.slidesjs-pagination li a.active{background: #fb40fe;}
+	.portrait_authority_label{color: #fff;padding: 0 0 20px 0;display: block;}
+		.portrait_authority_label a{color: #fff;font-size: 16px;}
+
+	.comments_wrapper{background: #fff;padding: 10px 20px 20px;text-shadow: none;}
+
+	.coming_soon{font-size: 30px;color: #fff;text-align: center;padding: 60px;margin: 5px;background: url(../img/bg.jpg) no-repeat center center;box-shadow: 0 0 5px #000;}
+
+	.sns_img{position: absolute;margin-left: -99999px;}
+
+	.qr_right{width: 338px;height: 330px;background: url(../img/qr_right.png) no-repeat center 0;position: fixed;top: 50%;left: 50%;margin: -165px 0 0 491px;}
+
+@media screen and (max-width: 1162px){.core{overflow: hidden;}}
+
 			
 
 

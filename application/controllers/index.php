@@ -27,6 +27,20 @@ class Index extends CI_Controller {
 		$data = array();
 		$data['is_home'] = true;
 
+		$data['girl_count'] = $this->Ori_model->mCountAll();
+
+		$data['news'] = $this->Ori_model->mPngGetBy('game', 1, 2, 0, 'desc', 'news');
+
+		$aGoddess = $data['goddess'] = json_decode(GODDESS, true);
+		$aGirls = array();
+		foreach ($aGoddess as $key => $value) {
+			$rel = $this->Ori_model->mPngGetBy('competition_event', $value, 4);
+			if(!empty($rel)){
+				$aGirls[$key] = $rel;
+			}
+		}
+		$data['girls'] = $aGirls;
+
 		$this->load->view('show/index', $data);
 	}
 }
