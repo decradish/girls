@@ -16,7 +16,7 @@ $account = !empty($_COOKIE['username']) ? $_COOKIE['username'] : null;
 <head>
 	<meta charset="UTF-8">
 	<meta property="wb:webmaster" content="120869181abf54a1" />
-	<title><?php if($controller == 'player' && $method == 'index'):?>世界时尚小姐在线报名<?php else:?>世界时尚小姐_梦幻美人鱼<?php endif;?></title>
+	<title><?php if($controller == 'player' && $method == 'index'):?>世界时尚小姐在线报名<?php else:?>世界时尚小姐在线报名<?php endif;?></title>
 	
 	<!-- 强制360浏览器用WebKit内核 -->
 	<meta name="renderer" content="webkit">

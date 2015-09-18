@@ -43,6 +43,8 @@ class Index extends CI_Controller {
 
 		$this->load->view('show/index', $data);
 	}
+
+	
 }
 
 /* End of file index.php */

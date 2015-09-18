@@ -158,6 +158,7 @@ var login = {
 			confirmPwdObj.focus();
 			return;
 		}
+		/*
 		if(realname && realname != ''){
 			realnameOk = true
 		}else{
@@ -191,23 +192,24 @@ var login = {
 			phoneObj.focus();
 			return;
 		}
+		*/
 		if(read){
 			readOk = true
 		}else{
 			login.showSignupErr('请阅读协议!');
 			return;
 		}
-		if(usernameOk && pwdOk && confirmPwdOk && realnameOk && identityOk && phoneOk && readOk){
+		if(usernameOk && pwdOk && confirmPwdOk){
 			$.ajax({
 				url: '/login/signup_ezone/',
 				type: 'post',
 				data: {
 					username:   $('#username_ezone').val(),
 					password:   $('#password_ezone').val(),
-					repassword: $('#repassword_ezone').val(),
-					realname:   $('#realname_ezone').val(),
-					id_no:      $('#id_no_ezone').val(),
-					phone:      $('#phone_ezone').val()
+					repassword: $('#repassword_ezone').val()
+					// realname:   $('#realname_ezone').val(),
+					// id_no:      $('#id_no_ezone').val(),
+					// phone:      $('#phone_ezone').val()
 				},
 				dataType: 'json',
 				success: function(data){

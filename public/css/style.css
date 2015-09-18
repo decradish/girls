@@ -128,7 +128,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 				.signup_box label input[type="checkbox"]{float: left;margin-top: 11px;}
 		.skill_tb label{width: 95px;}
 			.skill_tb td:first-child{padding-right: 10px;white-space: nowrap;vertical-align: top;}	
-		.photos{overflow: hidden;padding: 40px 0 20px;}
+		.photos{overflow: hidden;padding: 20px 0 20px;}
 			.photos .msg{margin: -10px 0 10px;}
 			.photos li{width: 158px;height: 211px;display: block;padding: 2px;margin-left: 27px;float: left;background: url(../img/photo_bg.png) no-repeat center 0;position: relative;position: relative;overflow: hidden;}
 				.photos li > input[type='file']{
@@ -176,6 +176,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 							position: absolute;
 							margin-top: -40px;}
 		.info{color: #fff;font-size: 14px;line-height: 20px;}
+		h2 + .info{padding-top: 20px;color: red;}
 		.photos + .info{text-align: right;padding-right: 15px;margin-bottom: 50px;}
 		.btn_wrapper{padding: 56px 0;text-align: center;}	
 			.btn_wrapper > *{
@@ -310,7 +311,7 @@ body{background: url(../img/bg.jpg) repeat-y center 1858px;text-shadow: 1px 1px 
 
 	.sns_img{position: absolute;margin-left: -99999px;}
 
-	.qr_right{width: 338px;height: 330px;background: url(../img/qr_right.png) no-repeat center 0;position: fixed;top: 50%;left: 50%;margin: -165px 0 0 491px;}
+	.qr_right{width: 338px;height: 330px;background: url(../img/qr_right.png) no-repeat center 0;position: fixed;top: 50%;left: 50%;margin: -165px 0 0 440px;}
 
 @media screen and (max-width: 1162px){.core{overflow: hidden;}}
 

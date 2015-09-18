@@ -7,7 +7,6 @@
 	<div id="girl_search_box" class="girl_search_box display-flexbox">
 		<div class="girl_search_sel">按照<span class="search_item_text"></span>进行搜索</div>
 		<ul class="girlz_search_list">
-			<li data-item="ezone_id">选手序号</li>
 			<li data-item="competition_event">参赛项目</li>
 			<li data-item="user_name">选手姓名</li>
 			<!--
@@ -41,14 +40,8 @@
 					<span>姓名：</span>
 					<p><?php echo $value['user_name'];?></p><br />
 
-					<span class="girl_info_game_name">游戏角色名：</span>
-					<p class="girl_info_game_name"><?php echo $value['game_account'];?></p><br />
-
-					<span>爱好：</span>
-					<?php $aHobby = json_decode($value['hobby']);?>
-					<p><?php echo implode('，', $aHobby);?></p><br />
-
-					<span>宣言：</span>
+					
+					<span style="float:left">宣言：</span>
 					<p><?php echo $value['intro'];?></p>
 				</div><!-- /.girl_info -->
 			</a>

@@ -4,10 +4,10 @@
 	<div class="race_news display-flexbox">
 		<!-- <img src="/public/img/index/news_img.png"/> -->
 		<div id="banner" class="banner">
-			<a href="javascript:void(0);">
+			<a href="http://sjxj.ezone.cn/news/detail/51" target="_blank">
 				<img src="/public/img/banner_0.jpg" alt="">
 			</a>
-			<a href="javascript:void(0);">
+			<a href="http://sjxj.ezone.cn/news/detail/50" target="_blank">
 				<img src="/public/img/banner_1.jpg" alt="">
 			</a>
 		</div><!-- /#banner.banner -->
@@ -15,7 +15,7 @@
 			<div class="race_news_top">
 				<div class="news_title">NEWS</div>
 				<?php if(isset($news[0]) && !empty($news[0])):?>
-				<div class="news_sub_title"><?php echo $news[0]['title'];?></div>
+				<div class="news_sub_title"><a href="news/detail/<?php echo $news[0]['id'];?>" target="_blank" title="<?php echo $news[0]['title'];?>" style="color:red"><?php echo $news[0]['title'];?></a></div>
 				<div class="race_news_content">
 				<?php echo strip_tags($news[0]['content']);?>
 				</div>
@@ -30,7 +30,7 @@
 			<div class="race_news_bottom display-flexbox">
 				<div class="flexbox-children">
 					<?php if(isset($news[1]) && !empty($news[1])):?>
-					<div class="news_title"><?php echo $news[1]['title'];?></div>
+					<div class="news_title"><a href="news/detail/<?php echo $news[1]['id'];?>" target="_blank" title="<?php echo $news[1]['title'];?>" style="font-size:20px;color:#ffacdd"><?php echo $news[1]['title'];?></a></div>
 					<div class="race_news_content">
 					<?php echo strip_tags($news[1]['content']);?>~
 					</div>
@@ -70,6 +70,7 @@
 			<div class="girl_list">
 				<?php if(isset($girls)&&!empty($girls)):?>
 					<?php foreach ($value as $girl_key => $girl_value) :?>
+						<?php #var_dump($value);?>
 					<a target="_blank" href="/player/index/<?php echo $girl_value['ezone_id'];?>">
 						<?php 
 						$aImage = json_decode(@$girl_value['image'], true);
@@ -82,15 +83,20 @@
 							<span>姓名：</span>
 							<p><?php echo $girl_value['user_name'];?></p><br />
 
-							<span class="girl_info_game_name">游戏角色名：</span>
-							<p class="girl_info_game_name"><?php echo $girl_value['game_account'];?></p><br />
+							<span>年龄：</span>
+							<p><?php echo $girl_value['birth'] ? date('Y')-(int)substr($girl_value['birth'],0,4) : '-';?></p><br />
 
-							<span>爱好：</span>
-							<?php $aHobby = json_decode($girl_value['hobby']);?>
-							<p><?php echo implode('，', $aHobby);?></p><br />
+							<span>身高：</span>
+							<p><?php echo $girl_value['stature'];?>CM</p><br />
 
-							<span>宣言：</span>
-							<p><?php echo $girl_value['intro'];?></p>
+							<span>三围：</span>
+							<p><?php echo $girl_value['bust'];?>-<?php echo $girl_value['waistline'];?>-<?php echo $girl_value['hipline'];?></p><br />
+
+							<span>职业：</span>
+							<p><?php echo $girl_value['occupation'];?></p><br />
+
+							<span class="girl_info_game_name">参赛项目：</span>
+							<p class="girl_info_game_name"><?php echo $goddess[$key];?></p>
 						</div><!-- /.girl_info -->
 					</a>
 					<?php endforeach;?>

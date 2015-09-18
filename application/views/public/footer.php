@@ -2,7 +2,9 @@
 
 	<footer>
 		Copyright © 2015 EZONE CO, INC. ALL RIGHTS RESERVED. 北京亿众时代科技有限公司版权所有<br />
-		京ICP备15022943号-1
+		京ICP备15022943号-1<br />
+		服务时间：周一至周五 10:00-18:00           客服电话：010-57622690<br />
+		客服QQ：739601188                            QQ群：430040179
 	</footer>
 
 </div><!-- /.core -->
@@ -18,7 +20,7 @@
 
 	<div id="coming_soon">
 		<div class="coming_soon">
-			游戏暂未开启，敬请期待！
+			9月30日开启，敬请期待！
 		</div><!-- /.coming_soon -->
 	</div><!-- /#coming_soon -->
 </div><!-- /.none -->
@@ -95,5 +97,15 @@ document.addEventListener(‘WeixinJSBridgeReady‘, function onBridgeReady() {
 
 </script>
 */?>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1dfc31f5ed6046c2a743353087618542";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </body>
 </html>

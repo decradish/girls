@@ -34,10 +34,7 @@
 							<span>姓名：</span>
 							<span class="name"><?php echo @$user_name;?></span>
 						</li>
-						<li class="role_wrap">
-							<span>游戏角色名：</span>
-							<span class="role"><?php echo @$game_account;?></span>	
-						</li>
+						
 						<li class="apply_time_wrap">
 							<span>报名日期：</span>
 							<span class="apply_time"><?php echo substr(@$create_time,0,10);?></span>

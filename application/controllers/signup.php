@@ -21,6 +21,7 @@ class Signup extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->helper('cookie');
 	}
 
 	public function index(){
@@ -31,13 +32,15 @@ class Signup extends CI_Controller {
 		$aDb = array();
 		$error = 0;
 		$sMsg = '';
-
+		
 		$rel = check_login();
 		if(!$rel){
 			$data['login'] = $aDb['login'] = false;
 			$error ++;
 		}
-
+		$cookie = get_cookie('ezone');
+		$username = $this->get_username_from_cookie($cookie);
+		$data['username'] = @$username['1'];
 		if(empty($_POST)){
 			$rel = $this->Ori_model->mGetBy('ezone_id', @$_SESSION['id']);
 
@@ -56,7 +59,7 @@ class Signup extends CI_Controller {
 		$birth_year        = $aDb['birth_year']        = $this->input->post('birth_year', TRUE);
 		$birth_month       = $aDb['birth_month']       = $this->input->post('birth_month', TRUE);
 		$birth_day         = $aDb['birth_day']         = $this->input->post('birth_day', TRUE);
-		$id_code           = $aDb['id_code']           = $this->input->post('id_code', TRUE);
+		//$id_code           = $aDb['id_code']           = $this->input->post('id_code', TRUE);
 		$nationality       = $aDb['nationality']       = $this->input->post('nationality', TRUE);
 		$occupation        = $aDb['occupation']        = $this->input->post('occupation', TRUE);
 		$city              = $aDb['city']              = $this->input->post('city', TRUE);
@@ -68,7 +71,7 @@ class Signup extends CI_Controller {
 		$intro             = $aDb['intro']             = $this->input->post('intro', TRUE);
 		$stature           = $aDb['stature']           = $this->input->post('stature', TRUE);
 		$weight            = $aDb['weight']            = $this->input->post('weight', TRUE);
-		$shoe_size         = $aDb['shoe_size']         = $this->input->post('shoe_size', TRUE);
+		//$shoe_size         = $aDb['shoe_size']         = $this->input->post('shoe_size', TRUE);
 		$bust              = $aDb['bust']              = $this->input->post('bust', TRUE);
 		$waistline         = $aDb['waistline']         = $this->input->post('waistline', TRUE);
 		$hipline           = $aDb['hipline']           = $this->input->post('hipline', TRUE);
@@ -82,10 +85,6 @@ class Signup extends CI_Controller {
 			$error ++;
 		}
 
-		if(empty($native_place)){
-			$sMsg .= '籍贯不能为空；';
-			$error ++;
-		}
 
 		if(empty($birth_year) || empty($birth_month) || empty($birth_day)){
 			$sMsg .= '出生日期不能为空；';
@@ -97,13 +96,6 @@ class Signup extends CI_Controller {
 			unset($aDb['birth_day']);
 		}
 
-		if(empty($id_code)){
-			$sMsg .= '身份证不能为空；';
-			$error ++;
-		}elseif(!IsCardNo($id_code)){
-			$sMsg .= '身份证格式错误；';
-			$error ++;
-		}
 
 		if(empty($nationality)){
 			$sMsg .= '民族不能为空；';
@@ -141,11 +133,6 @@ class Signup extends CI_Controller {
 			$error ++;
 		}
 
-		if(empty($game_account)){
-			$sMsg .= '游戏账号不能为空；';
-			$error ++;
-		}
-
 		if(empty($competition_event)){
 			$sMsg .= '参赛项目不能为空；';
 			$error ++;
@@ -175,13 +162,6 @@ class Signup extends CI_Controller {
 			$error ++;
 		}
 
-		if(empty($shoe_size)){
-			$sMsg .= '鞋码不能为空；';
-			$error ++;
-		}elseif(!is_numeric($shoe_size)){
-			$sMsg .= '鞋码必须为数字；';
-			$error ++;
-		}
 
 		if(empty($bust)){
 			$sMsg .= '胸围不能为空；';
@@ -290,7 +270,7 @@ class Signup extends CI_Controller {
 
 		$config['upload_path']   = './uploads/';
         $config['allowed_types'] =' gif|jpg|png|jpeg';
-        $config['max_size']      = '10000';
+        $config['max_size']      = '50000';
         $config['file_name']     = md5(uniqid().mt_rand(1,1000000)); //文件名不使用原始名
         $this->load->library('upload',$config);
 
@@ -354,6 +334,14 @@ class Signup extends CI_Controller {
 
 		$aJson['status'] = $rel;
         die(json_encode($aJson));
+	}
+
+	private function get_username_from_cookie($cookie){
+		$arr = base64_decode($cookie);
+		$arr = explode("##",$arr);
+		unset($arr['2']);
+		return $arr;
+		
 	}
 }
 

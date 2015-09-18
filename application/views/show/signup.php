@@ -70,15 +70,7 @@ $oriSkill = array(
 	</div><!-- /.login_wrap -->
 
 	<div id="signup_ezoneaaaaaa">
-		<!--
-		<input type="text" name="username_ezone" id="username_ezone"><br />
-		<input type="password" name="password_ezone" id="password_ezone"><br />
-		<input type="password" name="repassword_ezone" id="repassword_ezone"><br />
-		<input type="text" name="realname_ezone" id="realname_ezone"><br />
-		<input type="text" name="id_no_ezone" id="id_no_ezone"><br />
-		<input type="text" name="phone_ezone" id="phone_ezone"><br />
-		<input type="button" id="signup_ezone_btn" value="注册">
-		-->
+		
 	</div><!-- /#signup_ezone -->
 
 	<div id="signup_ezone" class="signup_wrap user_wrap">
@@ -95,19 +87,7 @@ $oriSkill = array(
 				<label for="pwd">重复密码：</label>
 				<input class="signup_ipt" type="password" name="repassword_ezone" id="repassword_ezone" />
 			</div>
-			<div class="signup_line"></div>
-			<div class="signup_item">
-				<label for="pwd">真实姓名：</label>
-				<input class="signup_ipt" type="text" name="realname_ezone" id="realname_ezone" />
-			</div>
-			<div class="signup_item">
-				<label for="pwd">身份证号码：</label>
-				<input class="signup_ipt" type="text" name="id_no_ezone" id="id_no_ezone" />
-			</div>
-			<div class="signup_item">
-				<label for="pwd">手机号：</label>
-				<input class="signup_ipt" type="text" name="phone_ezone" id="phone_ezone" />
-			</div>
+			
 			<div class="signup_line"></div>
 			<div class="signup_item">
 				<input type="checkbox" name="" id="read" class="read" />
@@ -170,7 +150,11 @@ $(function(){
 
 	<div id="signup" class="signup">
 		<form action="" method="post" onsubmit="return oSignup.check();">
-		<h1>世界时尚小姐在线报名</h1>
+		<h1>世界时尚小姐在线报名</h1> 
+
+		<div class="none">
+		<?php if(!empty($username)){?> <?php echo $username;?> <a href="/login/logout">退出</a><?php }?>
+		</div>
 
 		<div class="msg">
 			<?php echo @$msg;?>
@@ -182,15 +166,7 @@ $(function(){
 
 			姓名：
 			<input type="text" name="user_name" id="user_name" class="user_name" placeholder="姓名" value="<?php echo @$user_name;?>">
-
-			籍贯：
-			<select name="native_place" id="native_place" class="native_place" placeholder="籍贯">
-				<option value="">选择省市</option>
-				<?php foreach ($oriCitis as $key => $value) :?>
-				<option <?php if($value == @$native_place):?>selected="selected"<?php endif;?> value="<?php echo $value;?>"><?php echo $value;?></option>
-				<?php endforeach;?>
-			</select>
-
+			
 			<?php
 			$aBirth = explode('-', @$birth);
 			?>
@@ -199,12 +175,10 @@ $(function(){
 			<select data-month="<?php echo @$aBirth[1];?>" placeholder="出生日期" name="birth_month" id="birth_month" onchange="oBirth.setDays(birth_year,this,birth_day);"></select>
 			<select data-day="<?php echo @$aBirth[2];?>" placeholder="出生日期" name="birth_day" id="birth_day" class="birth_day"></select>
 
-			身份证:
-			<input type="text" name="id_code" id="id_code" class="id_code" maxlength="18" placeholder="身份证" value="<?php echo @$id_code;?>"><br />
-
+			
 			民族：
 			<input type="text" name="nationality" id="nationality" class="nationality" placeholder="民族" value="<?php echo @$nationality;?>">
-
+	<br />
 			职业：
 			<input type="text" name="occupation" id="occupation" class="occupation" placeholder="职业" value="<?php echo @$occupation;?>">
 
@@ -215,7 +189,7 @@ $(function(){
 				<option <?php if($value == @$city):?>selected="selected"<?php endif;?> value="<?php echo $value;?>"><?php echo $value;?></option>
 				<?php endforeach;?>
 			</select>
-
+			<br>
 			E-MAIL:
 			<input type="text" name="email" id="email" class="email" placeholder="E-MAIL" value="<?php echo @$email;?>"><br />
 
@@ -224,10 +198,8 @@ $(function(){
 
 			学历：
 			<input type="text" name="education" id="education" class="education" placeholder="学历" value="<?php echo @$education;?>">
-
-			游戏账号：
-			<input type="text" name="game_account" id="game_account" class="game_account" placeholder="游戏账号" value="<?php echo @$game_account;?>">
-
+			
+			
 			参赛项目：
 			<select name="competition_event" id="competition_event" placeholder="参赛项目">
 				<option selected value="">选择项目</option>
@@ -251,8 +223,7 @@ $(function(){
 			体重：
 			<input type="text" maxlength="3" name="weight" id="weight" class="weight" placeholder="体重" value="<?php echo @$weight;?>"> KG&nbsp;&nbsp;&nbsp;&nbsp;
 
-			鞋码：
-			<input type="text" maxlength="3" name="shoe_size" id="shoe_size" class="shoe_size" placeholder="鞋码" value="<?php echo @$shoe_size;?>"> 码<br />
+		<br />
 
 			胸围：
 			<input type="text" maxlength="3" name="bust" id="bust" class="bust" placeholder="胸围" value="<?php echo @$bust;?>"> CM&nbsp;&nbsp;&nbsp;&nbsp;
@@ -271,7 +242,7 @@ $(function(){
 			<?php foreach ($oriHobby as $key => $value) :?>
 			<label for="hobby_<?php echo $key;?>">
 				<input <?php if(!empty($hobby) && in_array($value, $hobby)):?>checked="checked"<?php endif;?> type="checkbox" name="hobby[]" id="hobby_<?php echo $key;?>" value="<?php echo $value;?>">
-				<?php echo $value;?>
+				<?php echo trim($value);?>
 			</label>
 				<?php if(($key+1)%10 == 0):?><br /><?php endif;?>
 			<?php endforeach;?>
@@ -291,9 +262,7 @@ $(function(){
 					<td>
 					<?php foreach ($value[1] as $key_son => $value_son) :?>
 						<label for="skill_<?php echo $skill_count;?>">
-							<input <?php if(!empty($skill) && in_array($value_son, $skill)):?>checked="checked"<?php endif;?> type="checkbox" name="skill[]" id="skill_<?php echo $skill_count;?>" value="<?php echo $value_son;?>">
-							<?php echo $value_son;?>
-						</label>
+							<input <?php if(!empty($skill) && in_array($value_son, $skill)):?>checked="checked"<?php endif;?> type="checkbox" name="skill[]" id="skill_<?php echo $skill_count;?>" value="<?php echo $value_son;?>"><?php echo trim($value_son);?></label>
 						<?php $skill_count ++;?>
 					<?php endforeach;?>
 					</td>
@@ -302,7 +271,10 @@ $(function(){
 			</table><!-- /.skill_tb -->
 		</div><!-- /.signup_box -->
 
-		<h2>上传照片 (5张必传)</h2>
+		<h2><font color="#FFFFFF">上传照片 (5张必传) </font><font color="#FFFF37">注：每次只可上传一张照片，需点击“提交”后，方可上传成功</font></h2>
+
+		<div class="info">温馨提示：上传照片格式可以是 jpg / gif / jpeg / png；上传照片每次只可上传1张，每张不超过5M</div>
+
 		<ul id="photos" class="photos">
 			<div class="msg"></div>
 
@@ -317,7 +289,7 @@ $(function(){
 					<input type="file" name="image" id="img_<?php echo $key;?>">
 					<input type="hidden" name="image_src[]" id="img_src_<?php echo $key;?>" value="<?php echo $value;?>">
 					<div class="photo_btns">
-						<input type="button" value="设为首图" class="btn to_leader">
+						<!--input type="button" value="设为首图" class="btn to_leader"-->
 						<a href="javascript:void(0);" class="btn reupload">
 							重新上传
 							<input type="file" name="image" id="reupload_<?php echo $key;?>">
@@ -394,20 +366,11 @@ $(function(){
 			<input type="hidden" name="leader_img" id="leader_img" value="0">
 		</ul><!-- /.photos -->
 
-		<div class="info">温馨提示：上传照片格式可以是 jpg / gif / jpeg / png；上传照片每张不超过1M</div>
-
 		<div class="msg"></div>
 		<label class="portrait_authority_label" for="portrait_authority">
 			<input type="checkbox" name="portrait_authority" id="portrait_authority">
 			<a target="_blank" href="/public/选手肖像权授权书.docx">同意肖像授权</a>
 		</label>
-
-		<div class="info">
-			填表说明：<br />
-			1、以上必填项均须填写，不可遗漏。<br />
-			2、本人确认：以上内容属实并准确无误，如大赛组委会查证内容与事实不符，大赛组委会有取消选手资格，并无异议。<br />
-			3、联系方式如有改变，请注意与组委会及时更新。
-		</div><!-- /.info -->
 
 		<div class="btn_wrapper">
 			<?php if(!isset($signuped)):?>
@@ -417,15 +380,18 @@ $(function(){
 			<?php endif;?>
 			<a href="/" class="btn_cancel">取消</a>
 		</div><!-- /.btn_wrapper -->
+
+		<div class="info">
+			填表说明：<br />
+			1、以上必填项均须填写，不可遗漏。<br />
+			2、本人确认：以上内容属实并准确无误，如大赛组委会查证内容与事实不符，大赛组委会有取消选手资格，并无异议。<br />
+			3、联系方式如有改变，请注意与组委会及时更新。<br />
+				服务时间：周一至周五 10:00-18:00           客服电话：010-57622690<br />
+				客服QQ：739601188                            QQ群：430040179
+		</div><!-- /.info -->
 		</form>
 	</div><!-- /.signup -->
 
-	<?php /*
-	<form action="/signup/upload_img/" method="post" enctype="multipart/form-data">
-		<input type="file" name="image" id="image">
-		<input id="spanButtonPlaceHolder" type="submit" value="上传">
-	</form>
-	*/?>
 
 	<script type="text/javascript" src="/public/js/ajaxfileupload.js"></script>
 	<script type="text/javascript" src="/public/js/jquery.Jcrop.min.js"></script>
@@ -517,13 +483,13 @@ $(function(){
 						.addClass('show')
 						.attr('src', oData.img+'?type=new')
 						.nextAll('input[type="hidden"]').val(oData.img)
+					alert('提交成功')
 				}else{
 					alert('提交失败，请重试')
 				}
 			},
 			error: function(data){
 				// console.log('error: ', data)
-				alert('提交失败，请重试')
 			}
 		})
 	}
@@ -542,13 +508,7 @@ $(function(){
                 	<div>
 		                <img id="preview1" src="">
                 	</div>
-                </div>
-            </div>
-		</div><!-- /#img_preview -->
-
-		<div class="clearfix"></div>
-
-		<div class="btn_wrapper">
+					<div class="btn_wrapper">
 			<input type="hidden" name="x" id="x">
 			<input type="hidden" name="y" id="y">
 			<input type="hidden" name="w" id="w">
@@ -557,6 +517,13 @@ $(function(){
 			<a id="resie_img_btn" class="add_btn" href="javascript:resize_img();">提交</a>
 			<a class="btn_cancel" href="javascript:$.fancybox.close();">取消</a>
 		</div><!-- /.btn_wrapper -->
+                </div>
+            </div>
+		</div><!-- /#img_preview -->
+
+		<div class="clearfix"></div>
+
+		
 	</div><!-- /#jcrop_lg -->
 </div><!-- /.none -->
 		

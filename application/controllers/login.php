@@ -21,6 +21,7 @@ class Login extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->helper('cookie');
 	}
 
 	public function index(){
@@ -88,7 +89,7 @@ class Login extends CI_Controller {
 			$data['error'] .= '两次密码不一致；';
 			$error ++;
 		}
-
+		/*
 		if(empty($realname)){
 			$data['error'] .= '真实姓名不能为空；';
 			$error ++;
@@ -109,6 +110,7 @@ class Login extends CI_Controller {
 			$data['error'] .= '电话格式错误；';
 			$error ++;
 		}
+		*/
 
 		if($error > 0){
 			$data['code'] = 0;
@@ -134,6 +136,18 @@ class Login extends CI_Controller {
 		}else{
 			setcookie('ezone',$cookie,null,"/",COOKIE_DOMAIN,null,TRUE);
 		}
+
+	}
+
+
+	public function logout(){
+	
+		delete_cookie('ezone');
+		setcookie('ezone','',-3600*24*30,"/",COOKIE_DOMAIN,null,TRUE);
+		setcookie('ezone','',-3600*24*30,"/",COOKIE_DOMAIN,null,TRUE);
+		
+		redirect("signup");
+		
 
 	}
 }

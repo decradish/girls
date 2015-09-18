@@ -2,11 +2,11 @@ var oBirth = {
 	//设置初始年月日
 	init: function(){
 		// 添加年份，从1910年开始  
-		for (var i = 1910; i <= new Date().getFullYear(); i++) {  
+		for (var i = 1970; i <= new Date().getFullYear(); i++) {  
 		    this.addOption(birth_year, i, i);  
 		    // 选中已选年 
 		    if (i == $('#birth_year').data('year')) { 
-		        birth_year.options[i-1910].selected = true; 
+		        birth_year.options[i-1970].selected = true; 
 		    }
 		}  
 		// 添加月份  
@@ -145,32 +145,43 @@ var oSignup = {
 					if(sThis == ''){
 						self.msg(oThis, '不能为空')
 						error ++
-						return
+						
+						return false;
 					}
 
 					if(oThis.hasClass('id_code') && !oCehck.isCardNo(sThis)){
 						self.msg(oThis, '格式不正确')
+						
 						error ++
+							return false
 					}
 
 					if(oThis.hasClass('email') && !oCehck.isEmail(sThis)){
 						self.msg(oThis, '格式不正确')
+							
 						error ++
+							return false
 					}
 
 					if(oThis.hasClass('phone') && !oCehck.isPhoneNo(sThis)){
 						self.msg(oThis, '格式不正确')
+							
 						error ++
+							return false
 					}
 
 					if(oThis.hasClass('intro') && oCehck.chLength(sThis) > 100){
 						self.msg(oThis, '不能超过100个字')
+							
 						error ++
+							return false
 					}
 
 					if(oThis.parents('.signup_box').hasClass('signup_box_body') && isNaN(sThis)){
 						self.msg(oThis, '必须为数字')
+							
 						error ++
+							return false
 					}
 				}).end()
 			.find('input[type="checkbox"]').each(function(){
@@ -192,6 +203,7 @@ var oSignup = {
 				if(!oThis.hasClass('show')){
 					console.log('请上传5张照片')
 					self.msg(oThis, '请上传5张照片')
+						
 					error ++
 					return false
 				}
@@ -206,12 +218,14 @@ var oSignup = {
 		$(oCheckbox.aName).each(function(i){
 			if(oCheckbox.iCount[i] == 0){
 				var oThis = $('input[type="checkbox"][name="'+oCheckbox.aName[i]+'"]').eq(0)
-				self.msg(oThis, '')
+				self.msg(oThis, '没有检测到')
+					console.log('8');
 				error ++
+					return false
 			}
 		})
-
-		if(error > 0){
+		
+		if(error >1 ){
 			return false
 		}else{
 			return true
